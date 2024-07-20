@@ -17,14 +17,14 @@ let
   workspacesSettings =
     if hostname == "pcbox" then
       [
-        "1, monitor:HDMI-A-1, default:true"
-        "2, monitor:HDMI-A-1, default:true"
-        "3, monitor:HDMI-A-1, default:true"
-        "4, monitor:HDMI-A-1, default:true"
-        "5, monitor:HDMI-A-1, default:true"
-        "6, monitor:HDMI-A-1, default:true"
-        "7, monitor:HDMI-A-1, default:true"
-        "8, monitor:HDMI-A-1, default:true"
+        "1, monitor:HDMI-A-2, default:true"
+        "2, monitor:HDMI-A-2, default:true"
+        "3, monitor:HDMI-A-2, default:true"
+        "4, monitor:HDMI-A-2, default:true"
+        "5, monitor:HDMI-A-2, default:true"
+        "6, monitor:HDMI-A-2, default:true"
+        "7, monitor:HDMI-A-2, default:true"
+        "8, monitor:HDMI-A-2, default:true"
         "9, monitor:DP-3, default:true"
         "10, monitor:DP-3, default:true"
         "11, monitor:DP-3, default:true"

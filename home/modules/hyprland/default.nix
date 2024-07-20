@@ -129,6 +129,7 @@ in {
           disable_hyprland_logo = true;
           focus_on_activate = false;
           force_default_wallpaper = 0;
+          vrr = 1;
         };
       };
     };

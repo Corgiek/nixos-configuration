@@ -11,7 +11,7 @@
     disk = {
       vdb = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_1TB_S5GXNX1T331237Z";
+        device = "/dev/sda";
 
         content = {
           type = "gpt";

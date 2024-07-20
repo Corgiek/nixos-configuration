@@ -15,10 +15,10 @@ in {
   config = mkIf cfg.enable {
     services.undervolt = {
       enable = true;
-
-      coreOffset = -100;
-
-      gpuOffset  = -100;
+      tempBat    = 80;
+      tempAc     = 80;
+      coreOffset = -102;
+      gpuOffset  = -102;
     };
   };
 }

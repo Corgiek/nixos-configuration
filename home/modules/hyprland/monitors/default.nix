@@ -10,7 +10,7 @@ let
   cfg = config.module.hyprland.monitors;
 
   monitorsSettings =
-    if hostname == "pcbox" then ["HDMI-A-2,1920x1080@72,0x0,1" "DP-3,1024x768@102,1"]
+    if hostname == "pcbox" then ["HDMI-A-2,1920x1080@71,0x0,1" "DP-3,1024x768@102,1920x312,1"]
     else if hostname == "nbox" then ["eDP-1,1920x1080@60,0x0,1.25"]
     else [];
 

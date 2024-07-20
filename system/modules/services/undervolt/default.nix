@@ -9,7 +9,7 @@ let
   cfg = config.module.services.undervolt;
 in {
   options = {
-    module.services.undervolt.enable = mkEnableOption "Enable cpu-autofreq";
+    module.services.undervolt.enable = mkEnableOption "Enable undervolt";
   };
 
   config = mkIf cfg.enable {

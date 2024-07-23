@@ -25,6 +25,8 @@
       udev.enable       = true;
       greetd-tui.enable = true;
       hyprland.enable   = true;
+      tailscale.enable  = true;
+      mediamtx.enable   = true;
     };
 
     programs = {

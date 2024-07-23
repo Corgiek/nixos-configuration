@@ -11,7 +11,7 @@ let
 in {
   imports = [
     ../../../modules/nix
-   #../../modules/ssh
+    ../../modules/ssh
     ../../modules
     ../../modules/swaync
   ];
@@ -33,7 +33,7 @@ in {
     chrome.enable   = isLinux && isWorkstation;
     firefox.enable  = isLinux && isWorkstation;
     foot.enable     = isLinux && isWorkstation;
-    #ssh.enable      = isLinux && isWorkstation;
+    ssh.enable      = isLinux && isWorkstation;
     hyprland.enable = isLinux && isWorkstation;
     xdg.enable      = isLinux && isWorkstation;
 
@@ -129,12 +129,21 @@ in {
       ulauncher
 
       # Misc
-      obs-studio
       dconf2nix
       gpick
       gat
       vlc
       gnome.eog
+
+      # OBS plugins
+      obs-studio
+      obs-studio-plugins.obs-vkcapture
+      obs-studio-plugins.input-overlay
+      obs-studio-plugins.obs-pipewire-audio-capture
+
+      # Wine
+      wineWow64Packages.unstableFull
+      lutris
     ];
   };
 }

@@ -23,6 +23,7 @@ in {
       NIXPKGS_ALLOW_UNFREE = "1";
       MOZ_ENABLE_WAYLAND = "1";
       XDG_SESSION_TYPE = "wayland";
+      ROC_ENABLE_PRE_VEGA = "1";
     };
 
     environment.sessionVariables = {
@@ -30,7 +31,6 @@ in {
       FLAKE = "/home/${username}/Code/nixos-configuration";
       QT_QPA_PLATFORMTHEME = "gtk3";
       TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY = "1";
-      ROC_ENABLE_PRE_VEGA = "1";
     };
   };
 }

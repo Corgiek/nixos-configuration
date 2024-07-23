@@ -18,7 +18,9 @@ with lib;
     ./bolt
     ./zram
     ./tlp
+    ./tailscale
     ./undervolt
+    ./mediamtx
   ];
 
   /*

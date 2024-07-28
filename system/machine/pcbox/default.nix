@@ -27,6 +27,8 @@
       hyprland.enable   = true;
       tailscale.enable  = true;
       mediamtx.enable   = true;
+      ssh.enable        = true;
+      forgejo.enable    = true;
     };
 
     programs = {

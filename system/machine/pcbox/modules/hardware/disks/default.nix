@@ -11,7 +11,7 @@
     disk = {
       vdb = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_500GB_S6PYNM0T604172Z";
 
         content = {
           type = "gpt";

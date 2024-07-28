@@ -34,6 +34,8 @@
     ./zathura
     ./zoxide
     ./yazi
+    ./ssh
+    ./mpd
   ];
 }
 

@@ -45,6 +45,7 @@ in {
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
       package = pkgs.steam.override {
         extraPkgs = pkgs: [
+          pkgs.steam-run
           pkgs.gperftools
           pkgs.pkgsi686Linux.gperftools
         ];

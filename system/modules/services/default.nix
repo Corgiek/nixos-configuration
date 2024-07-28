@@ -21,6 +21,8 @@ with lib;
     ./tailscale
     ./undervolt
     ./mediamtx
+    ./ssh
+    ./forgejo
   ];
 
   /*

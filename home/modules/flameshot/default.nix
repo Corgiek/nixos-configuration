@@ -23,7 +23,7 @@ in {
           drawColor = "#00ffff";
           saveAfterCopy = true;
           saveAsFileExtension = "png";
-          savePath = "/home/corg/images/Screenshots";
+          savePath = "/home/corg/Images/Screenshots";
           savePathFixed = true;
           showDesktopNotification = false;
           showHelp = false;

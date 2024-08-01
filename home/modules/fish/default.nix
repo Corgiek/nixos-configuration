@@ -34,9 +34,9 @@ in {
       '';
 
       shellAliases = {
-        "flake-update" = "nix flake update /home/maxmur/Code/nixos-configuration/";
-        "darwin-update" = "darwin-rebuild switch --flake /Users/maxmur/Code/nixos-configuration/";
-        "darwin-home-update" = "home-manager switch --flake /Users/maxmur/Code/nixos-configuration/.#maxmur@macbox";
+        "flake-update" = "nix flake update /home/corg/Code/nixos-configuration/";
+        "darwin-update" = "darwin-rebuild switch --flake /Users/corg/Code/nixos-configuration/";
+        "darwin-home-update" = "home-manager switch --flake /Users/corg/Code/nixos-configuration/.#corg@macbox";
         "tree" = "eza --tree -L 3";
         "ls" = "eza";
         # "ll" = "eza -l";

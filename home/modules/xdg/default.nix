@@ -33,6 +33,14 @@ in {
         "application/pdf" = "org.pwmt.zathura.desktop";
       };
     };
+
+    xdg.userDirs = {
+      enable = true;
+      music = "/home/corg/Music";
+      pictures = "/home/corg/Images";
+      templates = null;
+      desktop = null;
+    };
   };
 }
 

@@ -27,8 +27,9 @@ in {
         }
       '';
     };
+
+    programs.ncmpcpp.enable = true;
     services.mpd-mpris.enable = true;
     services.mpd-mpris.mpd.port = 6600;
-    programs.ncmpcpp.enable = true;
   };
 }

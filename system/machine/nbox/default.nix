@@ -30,6 +30,7 @@
       zram.enable         = true;
       greetd-tui.enable   = true;
       hyprland.enable     = true;
+      tailscale.enable    = true;
     };
 
     programs = {

@@ -30,12 +30,12 @@ in {
     alacritty.enable = isWorkstation;
     vscode.enable    = isWorkstation;
 
-    chrome.enable   = isLinux && isWorkstation;
     firefox.enable  = isLinux && isWorkstation;
     foot.enable     = isLinux && isWorkstation;
     ssh.enable      = isLinux && isWorkstation;
     hyprland.enable = isLinux && isWorkstation;
     xdg.enable      = isLinux && isWorkstation;
+    mpd.enable      = isLinux && isWorkstation;
 
     hypridle.enable = config.module.hyprland.enable;
     hyprlock.enable = config.module.hyprland.enable;

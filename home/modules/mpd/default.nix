@@ -19,6 +19,7 @@ in {
       enable = true;
       package = pkgs.mpd;
       network.port = 6600;
+      musicDirectory = "/home/corg/Music";
 
       extraConfig = ''
         audio_output {
@@ -29,7 +30,8 @@ in {
     };
 
     programs.ncmpcpp.enable = true;
+    programs.ncmpcpp.mpdMusicDir = "/home/corg/Music";
     services.mpd-mpris.enable = true;
-    services.mpd-mpris.mpd.port = 6600;
+    services.mpd-mpris.mpd.useLocal = true;
   };
 }

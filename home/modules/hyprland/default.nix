@@ -29,7 +29,8 @@ in {
       imagemagick
       grimblast
       wl-clipboard
-      wf-recorder
+      wayland
+      wf-screenrec
       hyprpicker
       waypaper
       cliphist
@@ -115,9 +116,11 @@ in {
 
         input = {
           kb_layout = "us,ru";
+          kb_variant = "colemak"; 
           kb_options = "grp:caps_toggle";
           accel_profile = "flat";
           sensitivity = 0.0;
+          resolve_binds_by_sym = true;
 
           touchpad = {
             natural_scroll = true;

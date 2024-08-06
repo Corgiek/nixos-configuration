@@ -24,7 +24,7 @@
       undervolt.enable    = true;
       fwupd.enable        = true;
       polkit.enable       = true;
-      printing.enable     = true;
+      printing.enable     = false;
       syncthing.enable    = true;
       udev.enable         = true;
       zram.enable         = true;

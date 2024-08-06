@@ -20,7 +20,7 @@
       bolt.enable       = true;
       fwupd.enable      = true;
       polkit.enable     = true;
-      printing.enable   = true;
+      printing.enable   = false;
       syncthing.enable  = true;
       udev.enable       = true;
       greetd-tui.enable = true;

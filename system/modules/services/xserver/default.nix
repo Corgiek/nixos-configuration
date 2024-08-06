@@ -20,7 +20,6 @@ in {
       oxygen
     ];
 
-    # programs.hyprland.enable = true;
     # services.xserver.displayManager.gdm.enable = true;
     # services.xserver.desktopManager.gnome.enable = true;
     # environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
@@ -30,6 +29,7 @@ in {
       desktopManager.plasma6.enable = true;
       displayManager = {
         sddm.enable = true;
+        sddm.wayland.enable = true;
         defaultSession = "plasma";
       };
 

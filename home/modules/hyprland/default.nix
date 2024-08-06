@@ -120,7 +120,6 @@ in {
           kb_options = "grp:caps_toggle";
           accel_profile = "flat";
           sensitivity = 0.0;
-          resolve_binds_by_sym = true;
 
           touchpad = {
             natural_scroll = true;

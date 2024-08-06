@@ -30,7 +30,7 @@ in {
       grimblast
       wl-clipboard
       wayland
-      wf-screenrec
+      wl-screenrec
       hyprpicker
       waypaper
       cliphist

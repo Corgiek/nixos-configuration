@@ -29,7 +29,7 @@
 
     # Hyprland ecosystem
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.1";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.42.0";
     };
 
     xdghypr = {

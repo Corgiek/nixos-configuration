@@ -2,6 +2,7 @@
 , config
 , lib
 , pkgs
+, homeModules
 , ...
 }:
 
@@ -11,8 +12,8 @@ let
   cfg = config.module.hyprland;
 in {
   imports = [
-    ./binds
-    ./monitors
+    "${homeModules}/hyprland/binds"
+    "${homeModules}/hyprland/monitors"
   ];
 
   options = {
@@ -24,28 +25,6 @@ in {
       binds.enable = mkDefault cfg.enable;
       monitors.enable = mkDefault cfg.enable;
     };
-
-    home.packages = with pkgs; [
-      imagemagick
-      grimblast
-      wl-clipboard
-      wayland
-      wl-screenrec
-      hyprpicker
-      waypaper
-      cliphist
-      imv
-      gtk3
-      dbus
-      glib
-      swww
-      xdg-utils
-      pavucontrol
-      cinnamon.nemo
-      eww
-      networkmanagerapplet
-      brightnessctl
-    ];
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -103,10 +82,6 @@ in {
           };
         };
 
-        master = {
-          new_is_master = false;
-        };
-
         general = {
           gaps_in = 3;
           gaps_out = 7;
@@ -116,7 +91,6 @@ in {
 
         input = {
           kb_layout = "us,ru";
-          kb_variant = "colemak"; 
           kb_options = "grp:caps_toggle";
           accel_profile = "flat";
           sensitivity = 0.0;
@@ -131,7 +105,6 @@ in {
           disable_hyprland_logo = true;
           focus_on_activate = false;
           force_default_wallpaper = 0;
-          vrr = 1;
         };
       };
     };

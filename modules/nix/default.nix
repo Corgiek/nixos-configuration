@@ -9,7 +9,6 @@ with lib;
 
 let
   cfg = config.module.nix-config;
-  inherit (pkgs.stdenv) isLinux;
 in {
   options = {
     module.nix-config = {
@@ -29,13 +28,15 @@ in {
       allowUnfree = true;
 
       permittedInsecurePackages = [
+        "electron-27.3.11"
         "electron-25.9.0"
         "electron-19.1.9"
       ];
     };
 
     # Nix package manager settings
-    nix = optionalAttrs cfg.useNixPackageManagerConfig ({
+    nix = {
+      package = pkgs.nixVersions.latest;
       registry.s.flake = inputs.self;
 
       settings = {
@@ -49,10 +50,7 @@ in {
         automatic = true;
         options = "--delete-older-than 14d";
       };
-    } // optionalAttrs isLinux {
-      gc.dates = "daily";
-      optimise.automatic = true;
-    });
+    };
   };
 }
 

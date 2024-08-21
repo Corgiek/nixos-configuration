@@ -18,6 +18,11 @@ in {
       enable = true;
       package = pkgs.google-chrome;
 
+      extensions = [
+      # ublock origin
+      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+      ];
+
       commandLineArgs = [
         "--ozone-platform=wayland"
         "--ozone-platform-hint=auto"

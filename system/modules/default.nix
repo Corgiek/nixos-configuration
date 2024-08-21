@@ -1,22 +1,12 @@
-{ inputs
+{ systemModules
+, lib
 , ...
 }:
 
 {
-  imports = [
-    inputs.stylix.nixosModules.stylix
-    ../../modules/stylix
-
-    ./locales
-    ./network
-    ./programs
-    ./security
-    ./services
-    ./timedate
-    ./gaming
-    ./users
-    ./variables
-    ./virtualization
-    ./pihole
-  ];
+  # Read all directories from systemModules
+  imports = builtins.filter (module: lib.pathIsDirectory module) (
+    map (module: "${systemModules}/${module}") (builtins.attrNames (builtins.readDir systemModules))
+  );
 }
+

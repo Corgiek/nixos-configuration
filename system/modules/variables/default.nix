@@ -15,22 +15,24 @@ in {
 
   config = mkIf cfg.enable {
     environment.variables = {
-      # VDPAU_DRIVER = mkIf config.hardware.opengl.enable (mkDefault "va_gl");
-      QT_QPA_PLATFORM = "wayland";
-      SDL_VIDEODRIVER = "wayland";
-      CLUTTER_BACKEND = "wayland";
-      GDK_BACKEND = "wayland";
-      NIXPKGS_ALLOW_UNFREE = "1";
-      MOZ_ENABLE_WAYLAND = "1";
-      XDG_SESSION_TYPE = "wayland";
+      QT_QPA_PLATFORM        = "wayland";
+      SDL_VIDEODRIVER        = "wayland";
+      CLUTTER_BACKEND        = "wayland";
+      GDK_BACKEND            = "wayland";
+      NIXPKGS_ALLOW_UNFREE   = "1";
+      NIXPKGS_ALLOW_INSECURE = "1";
+      MOZ_ENABLE_WAYLAND     = "1";
+      XDG_SESSION_TYPE       = "wayland";
+      NIXOS_OZONE_WL         = "1";
       ROC_ENABLE_PRE_VEGA = "1";
     };
 
     environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      FLAKE = "/home/${username}/Code/nixos-configuration";
-      QT_QPA_PLATFORMTHEME = "gtk3";
+      MOZ_LEGACY_PROFILES                       = "1";
+      FLAKE                                     = "/home/${username}/Code/nixos-configuration";
+      QT_QPA_PLATFORMTHEME                      = "gtk3";
       TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY = "1";
     };
   };
 }
+

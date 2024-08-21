@@ -1,5 +1,6 @@
 { lib
 , config
+, username
 , ...
 }:
 
@@ -15,9 +16,10 @@ in {
   config = mkIf cfg.enable {
     services.syncthing = {
       enable = true;
-      user = "corg";
-      dataDir = "/home/corg/.obsidian/obsidian";
-      configDir = "/home/corg/.config/syncthing";
+      user = username;
+      dataDir = "/home/${username}/.obsidian/obsidian";
+      configDir = "/home/${username}/.config/syncthing";
     };
   };
 }
+

@@ -10,7 +10,9 @@ let
   cfg = config.module.virtualisation;
 in {
   options = {
-    module.virtualisation.enable = mkEnableOption "Enables virtualisation";
+    module.virtualisation = {
+      enable = mkEnableOption "Enables virtualisation";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -19,13 +21,11 @@ in {
       virt-manager
     ];
 
-    users.extraGroups.vboxusers.members = [ "corg" ];
-
     virtualisation = {
       docker.enable = true;
       podman.enable = true;
       libvirtd.enable = true;
-      # virtualbox.host.enable = true;
     };
   };
 }
+

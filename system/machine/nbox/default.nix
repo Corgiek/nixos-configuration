@@ -1,36 +1,31 @@
-{ inputs
+{ hyprlandEnable
 , ...
 }:
 
 {
-  imports = [
-    ../../modules
-    ./modules/hardware
-  ];
+  programs.command-not-found.enable = true;
 
   module = {
-    locales.enable                 = true;
-    network.enable                 = true;
-    security.enable                = true;
-    timedate.enable                = true;
-    gaming.enable                  = true;
-    users.enable                   = true;
-    variables.enable               = true;
-    virtualisation.enable          = true;
+    locales.enable        = true;
+    network.enable        = true;
+    security.enable       = true;
+    timedate.enable       = true;
+    users.enable          = true;
+    variables.enable      = true;
+    virtualisation.enable = true;
 
     services = {
       bolt.enable         = true;
       cpu-autofreq.enable = true;
-      undervolt.enable    = true;
       fwupd.enable        = true;
       polkit.enable       = true;
-      printing.enable     = false;
+      printing.enable     = true;
       syncthing.enable    = true;
       udev.enable         = true;
       zram.enable         = true;
       greetd-tui.enable   = true;
-      hyprland.enable     = true;
-      tailscale.enable    = true;
+
+      hyprland.enable = hyprlandEnable;
     };
 
     programs = {

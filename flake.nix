@@ -1,12 +1,11 @@
 {
-  description = "MeowPurr Flake";
+  description = "corggie Flake";
 
   inputs = {
     # Official NixOS repo
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
-    #nixpkgs-local.url = "git+file:///home/corg/Code/nix/nixpkgs";
 
     # NixOS community
     home-manager = {
@@ -19,6 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence.url = "github:/nix-community/impermanence";
     stylix.url = "github:danth/stylix";
 
     # MacOS configuration
@@ -29,7 +29,7 @@
 
     # Hyprland ecosystem
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.42.0";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=c5feee1e357f3c3c59ebe406630601c627807963";
     };
 
     xdghypr = {
@@ -87,26 +87,54 @@
     };
   };
 
-  outputs = { flake-parts, ... } @ inputs:
+  outputs = { self, flake-parts, ... } @ inputs:
   let
-    linuxArch          = "x86_64-linux";
-    linuxArmArch       = "aarch64-linux";
-    darwinArch         = "aarch64-darwin";
-    stateVersion       = "24.11";
-    stateVersionDarwin = 4;
-    libx               = import ./lib { inherit inputs stateVersion stateVersionDarwin; };
+    # Import helper funcfions
+    libx = import ./lib { inherit self inputs; };
 
+    # Description of hosts
     hosts = {
-      pcbox  = { hostname = "pcbox";  username = "corg"; platform = linuxArch;    isWorkstation = true;  };
-      nbox   = { hostname = "nbox";   username = "corg"; platform = linuxArch;    isWorkstation = true;  };
-      rasp   = { hostname = "rasp";   username = "corg"; platform = linuxArmArch; isWorkstation = false; };
-      macbox = { hostname = "macbox"; username = "corg"; platform = darwinArch;   isWorkstation = true;  };
+      pcbox = {
+        hostname      = "pcbox";
+        username      = "corg";
+        platform      = "x86_64-linux";
+        stateVersion  = "24.11";
+        isWorkstation = true;
+        wm            = "sway";
+      };
+
+      nbox = {
+        hostname      = "nbox";
+        username      = "corg";
+        platform      = "x86_64-linux";
+        stateVersion  = "24.11";
+        isWorkstation = true;
+        wm            = "sway";
+      };
+
+      rasp = {
+        hostname      = "rasp";
+        username      = "corg";
+        platform      = "aarch64-linux";
+        stateVersion  = "24.11";
+        isWorkstation = false;
+      };
+
+      macbox = {
+        hostname      = "macbox";
+        username      = "corg";
+        platform      = "aarch64-darwin";
+        stateVersion  = 6;
+        isWorkstation = true;
+      };
     };
   in flake-parts.lib.mkFlake { inherit inputs; } {
     systems = [
-      linuxArch
-      linuxArmArch
-      darwinArch
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
     ];
 
     flake = {
@@ -120,22 +148,8 @@
         ${hosts.macbox.hostname} = libx.mkHostDarwin hosts.macbox;
       };
 
-      homeConfigurations = {
-        # pcbox
-        "${hosts.pcbox.username}@${hosts.pcbox.hostname}"   = libx.mkHome hosts.pcbox;
-        "root@${hosts.pcbox.hostname}"                      = libx.mkHome hosts.pcbox;
-
-        # Nbox
-        "${hosts.nbox.username}@${hosts.nbox.hostname}"     = libx.mkHome hosts.nbox;
-        "root@${hosts.nbox.hostname}"                       = libx.mkHome hosts.nbox;
-
-        # Rasp
-        "${hosts.rasp.username}@${hosts.rasp.hostname}"     = libx.mkHome hosts.rasp;
-        "root@${hosts.rasp.hostname}"                       = libx.mkHome hosts.rasp;
-
-        # Macbox
-        "${hosts.macbox.username}@${hosts.macbox.hostname}" = libx.mkHome hosts.macbox;
-      };
+      templates = import "${self}/templates" { inherit self; };
     };
   };
 }
+

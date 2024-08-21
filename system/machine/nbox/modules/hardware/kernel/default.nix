@@ -17,7 +17,7 @@
       "i915"
     ];
 
-    kernelParams = [
+    kernelParams = [ 
       # Video driver settings
       "i915.enable_guc=1"
       "pci=assign-busses,hpbussize=0x33,realloc"
@@ -29,7 +29,7 @@
       "slab_nomerge"
     ];
 
-    initrd.availableKernelModules = [
+    initrd.availableKernelModules = [ 
       "xhci_pci"
       "thunderbolt"
       "vmd"
@@ -72,6 +72,9 @@
       # Hide kptrs even for processes with CAP_SYSLOG`
       "kernel.kptr_restrict" = 2;
 
+      # Disable bpf() JIT (to eliminate spray attacks)
+      "net.core.bpf_jit_enable" = false;
+
       # Disable ftrace debugging
       "kernel.ftrace_enabled" = false;
 
@@ -101,3 +104,4 @@
     };
   };
 }
+

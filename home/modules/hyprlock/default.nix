@@ -1,4 +1,5 @@
-{ config
+{ self
+, config
 , lib
 , pkgs
 , ...
@@ -32,7 +33,7 @@ in {
         background = [
           {
             monitor = "";
-            path = "/home/corg/Pictures/wallpapers/grey_gradient.png";
+            path = "${self}/assets/grey_gradient.png";
             color = "rgba(25, 20, 20, 1.0)";
             blur_size = 8;
             blur_passes = 2;
@@ -86,6 +87,7 @@ in {
             text = "$TIME";
             color = "rgba(200, 200, 200, 1.0)";
             font_size = 120;
+            # font_family = "Noto Sans";
             font_famyly = config.stylix.fonts.serif.name;
             rotate = 0.000000;
             shadow_passes = 0;
@@ -102,6 +104,7 @@ in {
             text = "$LAYOUT";
             color = "rgba(200, 200, 200, 1.0)";
             font_size = 20;
+            # font_family = "Iosevka Nerd Font Mono";
             font_famyly = config.stylix.fonts.serif.name;
             rotate = 0.000000;
             shadow_passes = 0;

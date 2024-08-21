@@ -27,11 +27,9 @@ in {
       ];
 
       extraConfig = {
-        modi = "drun,calc,window,emoji";
+        modi = "drun,window";
         display-drun = "APPS";
-        display-calc = "CALC";
         display-window = "WINDOW";
-        display-emoji = "EMOJI";
         drun-display-format = "{name}";
       };
 

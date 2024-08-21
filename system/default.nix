@@ -1,26 +1,27 @@
-{ pkgs
-, lib
-
-, hostname
-, platform
+{ lib
+, commonModules
+, systemModules
+, machineConfigurationPath
+, machineConfigurationPathExist
+, machineModulesPath
+, machineModulesPathExist
+, platform ? null
 , stateVersion ? null
-, stateVersionDarwin ? null
 , ...
 }:
 
-let
-  inherit (pkgs.stdenv) isDarwin;
-  currentStateVersion = if isDarwin then stateVersionDarwin else stateVersion;
-in {
+{
   imports = [
-    ../modules/nix
+    "${commonModules}"
+    "${systemModules}"
   ]
-  ++ lib.optional (builtins.pathExists (./. + "/machine/${hostname}")) ./machine/${hostname};
+  ++ lib.optional machineConfigurationPathExist machineConfigurationPath
+  ++ lib.optional machineModulesPathExist machineModulesPath;
 
   module.nix-config.enable = true;
 
   # System version
-  system.stateVersion = currentStateVersion;
+  system = { inherit stateVersion; };
   # HostPlatform
   nixpkgs.hostPlatform = platform;
 }

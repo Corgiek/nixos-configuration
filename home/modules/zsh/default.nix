@@ -1,7 +1,8 @@
-{ pkgs
-, inputs
+{ inputs
 , lib
+, username
 , config
+, homeModules
 , ...
 }:
 
@@ -15,8 +16,8 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.file.".p10k.zsh".source = ./p10k.zsh;
-    home.file.".helmrc".source = ./helmrc;
+    home.file.".p10k.zsh".source = "${homeModules}/zsh/p10k.zsh";
+    home.file.".helmrc".source = "${homeModules}/zsh/helmrc";
 
     programs.zsh = {
       enable = true;
@@ -68,9 +69,8 @@ in {
 
       shellAliases = {
         # System
-        "flake-update" = "nix flake update /home/maxmur/Code/nixos-configuration/";
-        "darwin-update" = "darwin-rebuild switch --flake /Users/maxmur/Code/nixos-configuration/";
-        "darwin-home-update" = "home-manager switch --flake /Users/maxmur/Code/nixos-configuration/.#maxmur@macbox";
+        "flake-update" = "nix flake update /home/${username}/Code/nixos-configuration/";
+        "darwin-update" = "darwin-rebuild switch --flake /Users/${username}/Code/nixos-configuration/";
         "ls" = "eza";
         "ll" = "eza -l";
         "h" = "history";
@@ -105,7 +105,6 @@ in {
         # Others
         "gopenssl" = "/opt/cryptopack3/bin/openssl";
         "fuck" = "_ !!";
-        "minecraft" = "java -jar /home/maxmur/Games/TLauncher-2.86.jar";
         "sudo" = "doas";
       };
 
@@ -115,9 +114,6 @@ in {
 
       initExtra = ''
         POWERLEVEL9K_MODE="nerdfont-complete"
-        export PATH=$PATH:/home/maxmur/Downloads/android-studio/bin
-        export PATH=$PATH:/home/maxmur/Downloads/git/flutter/bin/
-        export ANDROID_HOME=/home/maxmur/.Android/sdk
         export PATH=$PATH:$ANDROID_HOME/tools
         export PATH=$PATH:$ANDROID_HOME/tools/bin
         export PATH=$PATH/:$ANDROID_HOME/platform-tools

@@ -1,14 +1,13 @@
-_:
+{ lib
+, machineModulesPath
+, ...
+}:
 
-{
-  imports = [
-    ./extra-hardware
-    ./graphics-card
-    ./network
-    ./kernel
-    ./sound
-    ./disks
-    ./boot
-  ];
+let
+  hardwareModulesPath = "${machineModulesPath}/hardware";
+in {
+  imports = builtins.filter (module: lib.pathIsDirectory module) (
+    map (module: "${hardwareModulesPath}/${module}") (builtins.attrNames (builtins.readDir hardwareModulesPath))
+  );
 }
 

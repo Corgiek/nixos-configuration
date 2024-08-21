@@ -1,4 +1,5 @@
 { config
+, self
 , lib
 , pkgs
 , ...
@@ -11,8 +12,8 @@ let
 
   audioControl      = "${pkgs.pulseaudio}/bin/pactl";
   brightnessControl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  screenshotArea    = "${pkgs.grimblast}/bin/grimblast --notify --freeze copy area";
-  screenshotScreen  = "${pkgs.grimblast}/bin/grimblast --notify --freeze copy output";
+  screenshotArea    = "${pkgs.grimblast}/bin/grimblast --notify copy area";
+  screenshotScreen  = "${pkgs.grimblast}/bin/grimblast --notify copy output";
   cliphist          = "${pkgs.cliphist}/bin/cliphist list | rofi -dmenu | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
   appLauncher       = "rofi -show";
 in {
@@ -26,7 +27,7 @@ in {
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
 
-        "${pkgs.swww}/bin/swww init & sleep 0.5 && exec ${pkgs.swww}/bin/swww img /home/maxmur/Pictures/wallpapers/grey_gradient.png --transition-type simple"
+        "${pkgs.swww}/bin/swww init & sleep 0.5 && exec ${pkgs.swww}/bin/swww img ${self}/assets/grey_gradient.png --transition-type simple"
 
         # Autostart
         "[workspace 1 silent] ${pkgs.floorp}/bin/floorp"
@@ -106,7 +107,7 @@ in {
 
         # Terminal
         # "SUPER, Return, exec, ${pkgs.alacritty}/bin/alacritty"
-        "SUPER, Return, exec, ${pkgs.foot}/bin/footclient"
+        "SUPER, Return, exec, ${pkgs.foot}/bin/foot"
 
         # Notifications
         "SUPER, N, exec, ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw"
@@ -124,11 +125,8 @@ in {
         # Cliphist
         "SUPER, C, exec, ${cliphist}"
 
-        # Lock
-        "SUPER, L, exec, ${pkgs.hyprlock}/bin/hyprlock"
-
         # File manager
-        "SUPER, E, exec, ${pkgs.cinnamon.nemo}/bin/nemo"
+        "SUPER, E, exec, ${pkgs.nemo}/bin/nemo"
 
         # Fullscreen
         "SUPER, Z, fullscreen"
@@ -192,3 +190,4 @@ in {
     };
   };
 }
+

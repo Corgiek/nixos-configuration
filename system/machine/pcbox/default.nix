@@ -1,34 +1,39 @@
-{ pkgs, ... }:
+{ hyprlandEnable
+, config
+, ...
+}:
 
 {
-  imports = [
-    ../../modules
-    ./modules/hardware
-  ];
-
   module = {
-    locales.enable                 = true;
-    network.enable                 = true;
-    security.enable                = true;
-    timedate.enable                = true;
-    gaming.enable                  = true;
-    users.enable                   = true;
-    variables.enable               = true;
-    virtualisation.enable          = true;
+    locales.enable        = true;
+    network.enable        = true;
+    security.enable       = true;
+    timedate.enable       = true;
+    users.enable          = true;
+    variables.enable      = true;
+    virtualisation.enable = true;
 
     services = {
-      bolt.enable       = true;
-      fwupd.enable      = true;
-      polkit.enable     = true;
-      printing.enable   = false;
-      syncthing.enable  = true;
-      udev.enable       = true;
-      greetd-tui.enable = true;
-      hyprland.enable   = true;
-      tailscale.enable  = true;
-      mediamtx.enable   = true;
-      ssh.enable        = true;
-      forgejo.enable    = true;
+      bolt.enable              = true;
+      fwupd.enable             = true;
+      polkit.enable            = true;
+      printing.enable          = true;
+      syncthing.enable         = true;
+      udev.enable              = true;
+      greetd-tui.enable        = true;
+      jellyfin.enable          = true;
+      mediamtx.enable          = true;
+      forgejo.enable           = true;
+      ssh.enable               = true;
+      tailscale.enable         = true;
+      qmk.enable               = false;
+
+      hyprland.enable = hyprlandEnable;
+
+      ollama = {
+        enable            = true;
+        gpuSupport.enable = config.services.ollama.enable;
+      };
     };
 
     programs = {
@@ -45,3 +50,4 @@
     };
   };
 }
+

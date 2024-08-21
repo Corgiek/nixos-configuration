@@ -1,6 +1,7 @@
 { lib
 , config
 , pkgs
+, homeModules
 , ...
 }:
 
@@ -15,7 +16,7 @@ in {
 
   config = mkIf cfg.enable {
     xdg.configFile."nvim" = {
-      source = ./config;
+      source = "${homeModules}/neovim/config";
       recursive = true;
     };
 
@@ -26,6 +27,8 @@ in {
       defaultEditor = true;
 
       extraPackages = with pkgs; [
+        gcc
+        nodejs_22
         ansible-language-server
         yaml-language-server
         marksman

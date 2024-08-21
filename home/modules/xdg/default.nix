@@ -37,7 +37,7 @@ in {
     xdg.userDirs = {
       enable = true;
       music = "/home/corg/Music";
-      pictures = "/home/corg/Images";
+      pictures = "/home/corg/Pictures";
       templates = null;
       desktop = null;
     };

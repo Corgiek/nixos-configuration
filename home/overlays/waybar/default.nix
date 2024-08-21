@@ -1,8 +1,7 @@
 _: prev: {
   waybar = prev.waybar.override {
-    pulseSupport = false;
+    wireplumberSupport = false;
     sndioSupport = false;
-    mpdSupport = false;
-    mprisSupport = false;
   };
 }
+

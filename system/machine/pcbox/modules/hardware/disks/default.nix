@@ -1,15 +1,43 @@
-{ inputs
+{ lib
 , ...
 }:
 
 {
-  imports = [
-    inputs.disko.nixosModules.disko
-  ];
+  # For impermanence
+  boot.initrd.postDeviceCommands = lib.mkAfter ''
+    mkdir /btrfs_tmp
+    mount /dev/pool/root /btrfs_tmp
+    if [[ -e /btrfs_tmp/root ]]; then
+        mkdir -p /btrfs_tmp/old_roots
+        timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
+        mv /btrfs_tmp/root "/btrfs_tmp/old_roots/$timestamp"
+    fi
+
+    delete_subvolume_recursively() {
+        IFS=$'\n'
+        for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
+            delete_subvolume_recursively "/btrfs_tmp/$i"
+        done
+        btrfs subvolume delete "$1"
+    }
+
+    for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
+        delete_subvolume_recursively "$i"
+    done
+
+    btrfs subvolume create /btrfs_tmp/root
+    umount /btrfs_tmp
+  '';
+
+  fileSystems = {
+    "/persist" = {
+      neededForBoot = true;
+    };
+  };
 
   disko.devices = {
     disk = {
-      vdb = {
+      main = {
         type = "disk";
         device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_500GB_S6PYNM0T604172Z";
 
@@ -17,7 +45,7 @@
           type = "gpt";
 
           partitions = {
-            ESP = {
+            esp = {
               size = "512M";
               type = "EF00";
 
@@ -26,9 +54,7 @@
                 format = "vfat";
                 mountpoint = "/boot";
 
-                mountOptions = [
-                  "defaults"
-                ];
+                mountOptions = [ "defaults" "umask=0077" ];
               };
             };
 
@@ -40,25 +66,41 @@
                 name = "crypted";
 
                 content = {
-                  type = "btrfs";
-                  extraArgs = [ "-f" ];
+                  type = "lvm_pv";
+                  vg   = "pool";
+                };
+              };
+            };
+          };
+        };
+      };
+    };
 
-                  subvolumes = {
-                    "/root" = {
-                      mountpoint = "/";
-                      mountOptions = [ "compress=zstd:5" "noatime" ];
-                    };
+    lvm_vg = {
+      pool = {
+        type = "lvm_vg";
 
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = [ "compress=zstd:5" "noatime" ];
-                    };
+        lvs = {
+          root = {
+            size = "100%FREE";
 
-                    "/nix" = {
-                      mountpoint = "/nix";
-                      mountOptions = [ "compress=zstd:5" "noatime" ];
-                    };
-                  };
+            content = {
+              type = "btrfs";
+              extraArgs = [ "-f" ];
+
+              subvolumes = {
+                "/root" = {
+                  mountpoint = "/";
+                };
+
+                "/persist" = {
+                  mountpoint   = "/persist";
+                  mountOptions = [ "compress=zstd" "subvol=persist" "noatime" ];
+                };
+
+                "/nix" = {
+                  mountpoint   = "/nix";
+                  mountOptions = [ "compress=zstd" "subvol=nix" "noatime" ];
                 };
               };
             };

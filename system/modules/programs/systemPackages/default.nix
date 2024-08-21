@@ -30,9 +30,12 @@ in {
       wget
       tree
       file
+      tldr
       zip
+      p7zip
       unzip
       killall
+      jq
 
       # Hardware utils
       glxinfo
@@ -62,12 +65,10 @@ in {
       orchis-theme
       vimix-cursors
       tela-circle-icon-theme
-      nordic
 
       # Hardware
       microcodeIntel
       libGL
-      qmk
 
       # Hardware utils
       libva-utils
@@ -76,7 +77,7 @@ in {
       fwupd-efi
 
       # Utils
-      gnome.dconf-editor
+      dconf-editor
       grim
     ];
   };

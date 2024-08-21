@@ -24,6 +24,7 @@ in {
 
         battery = {
           governor = "conservative";
+          # governor = "powersave";
           energy_performance_preference = "power";
           epp = "power";
           energy-performance-preference = "power";

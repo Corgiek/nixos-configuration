@@ -20,16 +20,10 @@ in {
       oxygen
     ];
 
-    # services.xserver.displayManager.gdm.enable = true;
-    # services.xserver.desktopManager.gnome.enable = true;
-    # environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
-    # services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
     services = {
       desktopManager.plasma6.enable = true;
       displayManager = {
         sddm.enable = true;
-        sddm.wayland.enable = true;
         defaultSession = "plasma";
       };
 

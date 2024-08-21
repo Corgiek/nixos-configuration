@@ -1,13 +1,6 @@
 _:
 
 {
-  imports = [
-    ../../modules
-    ./modules/temp-control
-    ./modules/hardware
-    ./modules/nginx
-  ];
-
   module = {
     locales.enable  = true;
     network.enable  = true;

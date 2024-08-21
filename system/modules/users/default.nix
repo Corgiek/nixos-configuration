@@ -1,4 +1,5 @@
-{ pkgs
+{ self
+, pkgs
 , lib
 , config
 , username
@@ -16,15 +17,15 @@ in {
 
   config = mkIf cfg.enable {
     users = {
-      mutableUsers = true;
+      mutableUsers = false;
 
       users = {
         ${username} = {
           isNormalUser = true;
           description = "${username}";
           home = "/home/${username}";
-          # shell = pkgs.zsh;
           shell = pkgs.fish;
+          hashedPasswordFile = "${self}/secrets/hashes/${username}.hash";
 
           extraGroups = [
             "audio"
@@ -37,6 +38,7 @@ in {
 
         root = {
           shell = pkgs.zsh;
+          hashedPasswordFile = "${self}/secrets/hashes/root.hash";
         };
       };
     };

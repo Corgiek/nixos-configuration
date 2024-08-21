@@ -1,7 +1,8 @@
 { lib
 , config
+, username
 , pkgs
-, inputs
+, homeModules
 , ...
 }:
 
@@ -15,7 +16,7 @@ in {
   };
 
   imports = [
-    ./starship
+    "${homeModules}/fish/starship"
   ];
 
   config = mkIf cfg.enable {
@@ -28,15 +29,11 @@ in {
         function fish_user_key_bindings
           fish_vi_key_bindings
         end
-
-        ${inputs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-
       '';
 
       shellAliases = {
-        "flake-update" = "nix flake update /home/corg/Code/nixos-configuration/";
-        "darwin-update" = "darwin-rebuild switch --flake /Users/corg/Code/nixos-configuration/";
-        "darwin-home-update" = "home-manager switch --flake /Users/corg/Code/nixos-configuration/.#corg@macbox";
+        "flake-update" = "nix flake update /home/${username}/Code/nixos-configuration/";
+        "darwin-update" = "darwin-rebuild switch --flake /Users/${username}/Code/nixos-configuration/";
         "tree" = "eza --tree -L 3";
         "ls" = "eza";
         # "ll" = "eza -l";
@@ -67,6 +64,9 @@ in {
         "drmi" = "docker rmi";
         "drm" = "docker rm";
 
+        # Kubernetes
+        "k" = "kubectl";
+
         # Pass
         "passc" = "pass -c";
         "upass" = "pass git pull; pass git push";
@@ -90,3 +90,4 @@ in {
     };
   };
 }
+

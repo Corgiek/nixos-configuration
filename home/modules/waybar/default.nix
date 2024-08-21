@@ -1,6 +1,8 @@
 { pkgs
 , config
 , lib
+, homeModules
+, wm
 , ...
 }:
 
@@ -34,11 +36,15 @@ in {
 
           modules-left = [
             "custom/nixlogo"
-            "hyprland/workspaces"
+            "${wm}/workspaces"
           ];
-          modules-center = [ "clock" ];
+
+          modules-center = [
+            "clock"
+          ];
+
           modules-right = [
-            "hyprland/language"
+            "${wm}/language"
             "tray"
             "pulseaudio"
             "cpu"
@@ -65,6 +71,10 @@ in {
             persistent-workspaces = {"*" = 6;};
           };
 
+          "sway/workspaces" = {
+            all-outputs = true;
+          };
+
           # Clock & Calendar
           clock = {
             format = "{:%a %b %d, %H:%M}";
@@ -84,6 +94,12 @@ in {
           };
 
           "hyprland/language" = {
+            format = "{}";
+            format-en = "US";
+            format-ru = "RU";
+          };
+
+          "sway/language" = {
             format = "{}";
             format-en = "US";
             format-ru = "RU";
@@ -126,9 +142,6 @@ in {
 
           # Battery
           battery = {
-            # format = "{capacity}% {icon} {power} W";
-            # format-charging = "{capacity}%  {power} W";
-            # format-icons = ["" "" "" "" "" "" "" "" "" "" ""];
             format = "{icon}  {capacity}%";
             format-charging = "{icon}  {capacity}%";
             format-icons = ["" "" "" "" ""];
@@ -169,8 +182,6 @@ in {
 
           # Network
           network = {
-            # format-wifi = "{bandwidthDownBytes}  {bandwidthUpBytes}";
-            # format-ethernet = "{bandwidthDownBytes}  {bandwidthUpBytes}";
             format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
             format-wifi = "{icon}";
             format-ethernet = "󰈀"; # 󰈁
@@ -184,7 +195,9 @@ in {
         }
       ];
 
-      style = builtins.readFile (./. + "/style.css");
+      style = mkAfter ''
+        ${builtins.readFile "${homeModules}/waybar/style.css"}
+      '';
     };
   };
 }

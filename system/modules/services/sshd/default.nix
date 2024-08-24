@@ -15,9 +15,14 @@ in {
   config = mkIf cfg.enable {
     services.openssh = {
       enable = true;
-      settings.PasswordAuthentication = false;
-      settings.KbdInteractiveAuthentication = false;
       ports = [ 2257 ];
+
+      settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      X11Forwarding = false;
+      LogLevel = "VERBOSE";
+      };
     };
   };
 }

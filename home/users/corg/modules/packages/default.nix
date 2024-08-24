@@ -11,10 +11,10 @@ with lib;
 
 let
   inherit (pkgs.stdenv) isLinux;
-  cfg = config.module.users.maxmur.packages;
+  cfg = config.module.users.corg.packages;
 in {
-  options.module.users.maxmur.packages = {
-    enable = mkEnableOption "Enable maxmur packages";
+  options.module.users.corg.packages = {
+    enable = mkEnableOption "Enable corg packages";
   };
 
   config = mkIf cfg.enable {
@@ -28,7 +28,6 @@ in {
       pre-commit
       deadnix
       statix
-      # eza
       ffmpeg
       inputs.any-nix-shell
 
@@ -95,7 +94,7 @@ in {
       grim
       slurp
       wl-clipboard
-      wf-recorder
+      wl-screenrec
       wayland
       hyprpicker
       waypaper

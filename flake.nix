@@ -123,7 +123,7 @@
       macbox = {
         hostname      = "macbox";
         username      = "corg";
-        platform      = "aarch64-darwin";
+        platform      = "x86_64-darwin";
         stateVersion  = 6;
         isWorkstation = true;
       };

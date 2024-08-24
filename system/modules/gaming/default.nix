@@ -22,15 +22,10 @@ in {
             general = {
             softrealtime = true;
         };
-        # gpu = {
-        #   apply_gpu_optimisations = "accept-responsibility";
-        #   gpu_device = 0;
-        # };
-
-        # custom = {
-        #  start = "$HOME/magic/hyprgamemode.sh"; # TODO: fix
-        #  end = "hyprctl reload";
-        # };
+        gpu = {
+            apply_gpu_optimisations = "accept-responsibility";
+            gpu_device = 1;
+        };
       };
     };
 

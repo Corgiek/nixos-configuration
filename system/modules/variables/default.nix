@@ -24,7 +24,7 @@ in {
       MOZ_ENABLE_WAYLAND     = "1";
       XDG_SESSION_TYPE       = "wayland";
       NIXOS_OZONE_WL         = "1";
-      ROC_ENABLE_PRE_VEGA = "1";
+      ROC_ENABLE_PRE_VEGA    = "1";
     };
 
     environment.sessionVariables = {

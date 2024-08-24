@@ -24,9 +24,8 @@
       jellyfin.enable          = true;
       mediamtx.enable          = true;
       forgejo.enable           = true;
-      ssh.enable               = true;
+      sshd.enable              = true;
       tailscale.enable         = true;
-      qmk.enable               = false;
 
       hyprland.enable = hyprlandEnable;
 

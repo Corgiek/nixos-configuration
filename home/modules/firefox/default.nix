@@ -18,12 +18,16 @@ in {
       enable = true;
       package = pkgs.floorp;
 
-      settings = {
-        "browser.translations.enable" = false;
-        "geo.enabled" = false;
-        "media.ffmpeg.vaapi.enabled" = true;
-        "gfx.webrender.all" = true;
-        "gfx.webrender.compositor" = true;
+      profiles.default = {
+        search.default = "DuckDuckGo";
+
+        settings = {
+          "browser.translations.enable" = false;
+          "geo.enabled" = false;
+          "media.ffmpeg.vaapi.enabled" = true;
+          "gfx.webrender.all" = true;
+          "gfx.webrender.compositor" = true;
+        };
       };
     };
   };

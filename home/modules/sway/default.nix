@@ -79,10 +79,10 @@ in {
           { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 1; exec ${pkgs.floorp}/bin/floorp'"; }
           { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 2; exec ${pkgs.telegram-desktop}/bin/telegram-desktop'"; }
           { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 4; exec ${pkgs.obsidian}/bin/obsidian'"; }
-          { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 5; exec ${pkgs.foot}/bin/foot'"; }
-          { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 5; exec ${pkgs.foot}/bin/foot'"; }
-          { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 5; exec ${pkgs.foot}/bin/foot'"; }
-          { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 6; exec ${pkgs.firefox}/bin/firefox -P work'"; }
+          { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 5; exec ${pkgs.foot}/bin/footclient'"; }
+          { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 5; exec ${pkgs.foot}/bin/footclient'"; }
+          { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 5; exec ${pkgs.foot}/bin/footclient'"; }
+          { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 6; exec ${pkgs.floorp}/bin/floorp -P work'"; }
           { command = "${pkgs.swayfx}/bin/swaymsg 'workspace 8; exec ${pkgs.vesktop}/bin/vesktop'"; }
         ];
       };

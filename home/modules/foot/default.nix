@@ -20,7 +20,7 @@ in {
       settings = {
         main = {
           term = "xterm-256color";
-          workers = 32;
+          workers = 16;
           initial-window-size-chars = "115x24";
           pad = "0x4";
         };

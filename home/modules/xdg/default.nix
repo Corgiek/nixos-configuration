@@ -1,5 +1,6 @@
 { config
 , lib
+, username
 , ...
 }:
 
@@ -31,15 +32,18 @@ in {
         "image/jpg" = "org.gnome.eog.desktop";
 
         "application/pdf" = "org.pwmt.zathura.desktop";
+
+        "inode/directory" =  "yazi";
       };
     };
 
     xdg.userDirs = {
       enable = true;
-      music = "/home/corg/Music";
-      pictures = "/home/corg/Pictures";
+      createDirectories = true;
+      music = "/home/${username}/Music";
+      pictures = "/home/${username}/Pictures";
+      desktop = "/home/${username}/Desktop";
       templates = null;
-      desktop = null;
     };
   };
 }

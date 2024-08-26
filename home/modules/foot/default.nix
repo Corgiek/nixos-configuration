@@ -19,10 +19,19 @@ in {
 
       settings = {
         main = {
+          app-id = "foot";
+          title = "foot";
+          locked-title = "no";
           term = "xterm-256color";
+          resize-delay-ms = 100;
           workers = 16;
           initial-window-size-chars = "115x24";
-          pad = "0x4";
+          pad = "12x21 center";
+        };
+
+        cursor = {
+          style = "beam";
+          beam-thickness = 2;
         };
 
         mouse = {

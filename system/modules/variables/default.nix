@@ -15,7 +15,7 @@ in {
 
   config = mkIf cfg.enable {
     environment.variables = {
-      QT_QPA_PLATFORM        = "wayland";
+      QT_QPA_PLATFORM        = "wayland;xcb";
       SDL_VIDEODRIVER        = "wayland";
       CLUTTER_BACKEND        = "wayland";
       GDK_BACKEND            = "wayland";
@@ -31,6 +31,7 @@ in {
       MOZ_LEGACY_PROFILES                       = "1";
       FLAKE                                     = "/home/${username}/Code/nixos-configuration";
       QT_QPA_PLATFORMTHEME                      = "gtk3";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION       = "1";
       TDESKTOP_I_KNOW_ABOUT_GTK_INCOMPATIBILITY = "1";
     };
   };

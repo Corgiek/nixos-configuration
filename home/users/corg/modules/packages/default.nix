@@ -55,7 +55,6 @@ in {
 
       # Text Editors
       obsidian
-      zed-editor
 
       # Minecraft
       prismlauncher

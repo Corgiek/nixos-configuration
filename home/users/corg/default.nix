@@ -13,11 +13,11 @@
   stylix.targets = {
     vscode.enable = false;
     helix.enable = false;
+    zellij.enable = true;
   };
 
   module = {
-    alacritty.enable  = isWorkstation;
-    vscode.enable     = isWorkstation;
+    kitty.enable  = isWorkstation;
     doom-emacs.enable = isWorkstation;
     zathura.enable    = isWorkstation;
 
@@ -51,6 +51,7 @@
     fish.enable           = true;
     zoxide.enable         = true;
     yazi.enable           = true;
+    zellij.enable         = true;
 
     users.${username}.packages.enable = true;
   };

@@ -15,7 +15,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      emacs
+      emacs29-pgtk
       emacsPackages.vterm
       emacsPackages.python
       emacsPackages.emacsql

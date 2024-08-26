@@ -19,9 +19,11 @@ in {
       enable = true;
       package = pkgs.mpd;
       network.port = 6600;
-      musicDirectory = "/home/corg/Music";
+      network.startWhenNeeded = true;
+      musicDirectory = "${config.home.homeDirectory}/Music";
 
       extraConfig = ''
+        auto_update           "yes"
         audio_output {
         type            "pipewire"
         name            "PipeWire Sound Server"
@@ -29,8 +31,6 @@ in {
       '';
     };
 
-    programs.ncmpcpp.enable = true;
-    programs.ncmpcpp.mpdMusicDir = "/home/corg/Music";
     services.mpd-mpris.enable = true;
     services.mpd-mpris.mpd.useLocal = true;
   };

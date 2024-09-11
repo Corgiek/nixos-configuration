@@ -11,10 +11,10 @@ with lib;
 
 let
   inherit (pkgs.stdenv) isLinux;
-  cfg = config.module.users.corg.packages;
+  cfg = config.module.user.packages;
 in {
-  options.module.users.corg.packages = {
-    enable = mkEnableOption "Enable corg packages";
+  options.module.user.packages = {
+    enable = mkEnableOption "Enable maxmur packages";
   };
 
   config = mkIf cfg.enable {
@@ -31,24 +31,9 @@ in {
       ffmpeg
       inputs.any-nix-shell
 
-      # Programming
-      go
-      python3
-      lldb
-
-      # DevOps Utils
-      docker-compose
-      kubectl
-      kubernetes-helm
-      ansible
-      ansible-lint
-      terraform
-
       # Security
       age
       sops
-      grype
-      syft
     ] ++ lib.optionals isWorkstation [
       # Chats
       discord
@@ -61,27 +46,39 @@ in {
 
       # Security
       semgrep
+      grype
+      syft
 
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" "UbuntuMono" "Iosevka" ]; })
       corefonts
     ] ++ lib.optionals (isLinux && isWorkstation) [
-     # DevOps Utils
+      # Programming
+      go
+      python3
+
+      # DevOps Utils
+      docker-compose
+      kubectl
+      kubernetes-helm
+      ansible
+      ansible-lint
+      terraform
       vagrant
 
       # Chats
-      telegram-desktop
+      materialgram
       vesktop
+
+      # Wine
+      wineWow64Packages.unstableFull
+      lutris
 
       # OBS & plugins
       obs-studio
       obs-studio-plugins.obs-vkcapture
       obs-studio-plugins.input-overlay
       obs-studio-plugins.obs-pipewire-audio-capture
-
-      # Wine
-      wineWow64Packages.unstableFull
-      lutris
 
       # Misc
       dconf2nix

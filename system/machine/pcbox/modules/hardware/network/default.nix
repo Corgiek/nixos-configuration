@@ -3,7 +3,6 @@ _:
 {
   networking = {
     nameservers = [
-      "192.168.1.8"
       "8.8.8.8"
       "8.8.4.4"
     ];
@@ -15,28 +14,11 @@ _:
         8384
         22000
         2257
-        8554
-        8889
-        3000
-        16262
       ];
 
       allowedUDPPorts = [
         22000
         21027
-        2257
-        8000
-        8001
-        8889
-        16262
-      ];
-
-      allowedTCPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
-      ];
-      
-      allowedUDPPortRanges = [
-        { from = 1714; to = 1764; } # KDE Connect
       ];
     };
   };

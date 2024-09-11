@@ -9,12 +9,12 @@ with lib;
 let
   cfg = config.module.hyprland.monitors;
 
-  monitorsSettings =
+  monitorsSettings = 
     if hostname == "pcbox" then ["HDMI-A-2,1920x1080@71,0x0,1" "DP-3,1024x768@102,1920x312,1"]
-    else if hostname == "nbox" then ["eDP-1,1920x1080@60,0x0,1.25"]
+    else if hostname == "nbox" then ["eDP-1,1920x1080@60,0x0,1"]
     else [];
 
-  workspacesSettings =
+  workspacesSettings = 
     if hostname == "pcbox" then
       [
         "1, monitor:HDMI-A-2, default:true"
@@ -30,7 +30,7 @@ let
         "11, monitor:DP-3, default:true"
         "12, monitor:DP-3, default:true"
       ]
-    else if hostname == "nbox" then
+    else if hostname == "nbox" then 
       [
         "1, monitor:eDP-1, default:true"
         "2, monitor:eDP-1, default:true"
@@ -58,3 +58,4 @@ in {
     };
   };
 }
+

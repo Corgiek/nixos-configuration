@@ -10,11 +10,10 @@ let
   homeModules         = "${homeConfiguration}/modules";
   systemModules       = "${systemConfiguration}/modules";
   commonModules       = "${self}/modules";
-in {
 
-  mkHost = 
-    { hostname ? "nixos"
-    , username ? "corg"
+  # Helper function for generating host configs
+  mkHost = hostname:
+    { username ? "user"
     , stateVersion ? "24.05"
     , platform ? "x86_64-linux" 
     , isWorkstation ? false
@@ -53,21 +52,14 @@ in {
       };
 
       modules = [
-        inputs.home-manager.nixosModules.home-manager
-        inputs.stylix.nixosModules.stylix
-        inputs.impermanence.nixosModules.impermanence
-        inputs.disko.nixosModules.disko
-        inputs.lanzaboote.nixosModules.lanzaboote
-
         "${systemConfiguration}"
         "${homeConfiguration}"
       ];
     };
 
   # Helper function for generating darwin host configs
-  mkHostDarwin = 
-    { hostname ? "mac"
-    , username ? "corg"
+  mkHostDarwin = hostname:
+    { username ? "user"
     , stateVersion ? 6
     , platform ? "aarch64-darwin" 
     }:
@@ -89,13 +81,10 @@ in {
         "${homeConfiguration}"
       ];
     };
+in {
+  forAllSystems = inputs.nixpkgs.lib.systems.flakeExposed;
 
-  forAllSystems = inputs.nixpkgs.lib.genAttrs [
-    "aarch64-linux"
-    "i686-linux"
-    "x86_64-linux"
-    "aarch64-darwin"
-    "x86_64-darwin"
-  ];
+  genNixos  = builtins.mapAttrs mkHost;
+  genDarwin = builtins.mapAttrs mkHostDarwin;
 }
 

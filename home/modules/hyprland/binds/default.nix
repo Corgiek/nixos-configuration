@@ -12,8 +12,8 @@ let
 
   audioControl      = "${pkgs.pulseaudio}/bin/pactl";
   brightnessControl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  screenshotArea    = "${pkgs.grimblast}/bin/grimblast --notify copy area";
-  screenshotScreen  = "${pkgs.grimblast}/bin/grimblast --notify copy output";
+  screenshotArea    = "${pkgs.grimblast}/bin/grimblast --notify --freeze copy area";
+  screenshotScreen  = "${pkgs.grimblast}/bin/grimblast --notify --freeze copy output";
   cliphist          = "${pkgs.cliphist}/bin/cliphist list | rofi -dmenu | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
   appLauncher       = "rofi -show";
 in {
@@ -39,8 +39,6 @@ in {
         "[workspace 5 silent] ${pkgs.foot}/bin/foot"
         "[workspace 5 silent] ${pkgs.foot}/bin/foot"
         "[workspace 5 silent] ${pkgs.foot}/bin/foot"
-
-        # "$[workspace 5 silent] {pkgs.vscode}/bin/code"
 
         "[workspace 6 silent] ${pkgs.qbittorrent}/bin/qbittorrent"
 

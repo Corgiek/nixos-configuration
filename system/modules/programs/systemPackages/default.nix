@@ -30,9 +30,7 @@ in {
       wget
       tree
       file
-      tldr
       zip
-      p7zip
       unzip
       killall
       jq

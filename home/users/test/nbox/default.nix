@@ -1,4 +1,5 @@
-{ pkgs
+{ inputs
+, pkgs
 , ...
 }:
 
@@ -17,6 +18,8 @@
   };
 
   imports = [
+    inputs.yandex-music.nixosModule
+
     ../../../../modules/nixConfig
     ../../../modules/alacritty
     ../../../modules/flameshot

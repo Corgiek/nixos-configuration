@@ -1,9 +1,10 @@
 <div align="center"><img src="assets/nixos-logo.png" width="300px"></div>
-<h1 align="center">Corgiek ❄️ NixOS Configuration</h1>
+<h1 align="center">Corggie ❄️ NixOS Public Configuration</h1>
 
 <div align="center">
 
 ![nixos](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat&logo=nixos&logoColor=CAD3F5&colorA=24273A&colorB=8aadf4)
+![flake check](https://img.shields.io/static/v1?label=Nix%20Flake&message=Check&style=flat&logo=nixos&colorA=24273A&colorB=9173ff&logoColor=CAD3F5)
 ![license](https://img.shields.io/static/v1.svg?style=flat&label=License&message=Unlicense&colorA=24273A&colorB=91d7e3&logo=unlicense&logoColor=91d7e3&)
 
 </div>
@@ -14,11 +15,12 @@
 - [File structure](#-file-structure)
 - [Desktop preview](#%EF%B8%8F-desktop-preview)
     - [Hyprland](#-hyprland)
-    - [SwayFX](#-swayfx)
+    - [Sway](#-sway)
 - [Software](#-software)
 - [Hosts description](#%EF%B8%8F-hosts-description)
 - [Keyboard](#%EF%B8%8F-keyboard)
 - [Special thanks](#%EF%B8%8F-special-thanks)
+- [Star history](#-star-history)
 
 ## ✨ Features 
 
@@ -38,7 +40,7 @@
     - [🧩 modules](home/modules/) home manager modules 
     - [♻️ overlays](home/overlays) home manager overlays
     - [👤 users](home/users) users configurations for home manager
-        - [🧩 modules](home/users/corg/modules/) home manager user modules
+        - [🧩 modules](home/users/maxmur/modules/) home manager user modules
 - [📃 lib](lib/default.nix) helper functions for creating configurations
 - [🧩 modules](modules/default.nix) common modules for nixos/nixDarwin/home-manager
 - [🖥️ system](system/default.nix) entry point for creating a machine
@@ -64,7 +66,7 @@ The images below may not represent the final system. Some parts may differ.
 
 ![desktop3.png](assets/github/desktop3.png)
 
-### 💪 SwayFX
+### 💪 Sway
 
 ![swayfx0.png](assets/github/swayfx/image0.png)
 
@@ -75,7 +77,7 @@ The images below may not represent the final system. Some parts may differ.
 ## 📘 Software
 
  - OS - [**`NixOS`**](https://nixos.org/)
- - WM - [**`Hyprland`**](https://hyprland.org/) or [**`SwayFX`**](https://github.com/WillPower3309/swayfx)
+ - WM - [**`Hyprland`**](https://hyprland.org/) or [**`Sway`**](https://github.com/WillPower3309/swayfx)
  - Theme - [**`Nord`**](https://github.com/nordtheme/nord)
  - Wallpapers - [**`Grey wave`**](assets/grey_gradient.png)
  - Editor - [**`Neovim`**](https://neovim.io/)

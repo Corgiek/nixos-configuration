@@ -7,10 +7,10 @@
 with lib;
 
 let
-  cfg = config.module.impermanence;  
+  cfg = config.module.user.impermanence;  
 in {
   options = {
-    module.impermanence.enable = mkEnableOption "Enables home impermanence";
+    module.user.impermanence.enable = mkEnableOption "Enables home impermanence";
   };
 
   config = mkIf cfg.enable {
@@ -20,6 +20,7 @@ in {
 
         directories = [
           "Code"
+          "Desktop"
           "Downloads"
           "Documents"
           "go"
@@ -31,10 +32,9 @@ in {
           ".ansible_inventory"
           ".docker"
           ".emacs.d"
-          ".flutter-devtools"
           ".kube"
+          ".m2"
           ".mozilla"
-          ".thunderbird"
           ".obsidian"
           ".openvpn"
           ".password-store"
@@ -51,7 +51,6 @@ in {
           ".config/htop"
           ".config/nvim"
           ".config/syncthing"
-          ".config/pulse"
           ".local/share/zoxide"
           ".local/share/fish"
           ".local/share/nix"
@@ -60,7 +59,6 @@ in {
           ".local/share/TelegramDesktop"
           ".local/share/keyrings"
           ".local/share/nvim"
-          ".local/share/PrismLauncher"
           ".local/state"
           ".vscode"
           ".pki"
@@ -69,6 +67,8 @@ in {
         ];
 
         files = [
+          ".face"
+          ".face.icon"
           ".zsh_history"
           ".cache/cliphist/db"
         ];

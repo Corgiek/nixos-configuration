@@ -10,12 +10,12 @@ let
   cfg = config.module.sway.outputs;
 
   pcboxOutputs = {
-    HDMI-A-2 = { 
+    DP-1 = { 
       resolution = "1920x1080@72Hz";
       position = "0 0";
     };
     
-    DP-3 = {
+    DP-2 = {
       resolution = "1024x768@102Hz";
       position = "1920 312";
     };
@@ -43,7 +43,7 @@ let
     { workspace = "6"; output = "HDMI-A-2"; }
     { workspace = "7"; output = "HDMI-A-2"; }
     { workspace = "8"; output = "HDMI-A-2"; }
-    { workspace = "9"; output = "DP-3"; }
+    { workspace = "9"; output = "HDMI-A-2"; }
     { workspace = "10"; output = "DP-3"; }
     { workspace = "11"; output = "DP-3"; }
     { workspace = "12"; output = "DP-3"; }

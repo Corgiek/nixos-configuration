@@ -19,8 +19,8 @@ in {
       package = pkgs.google-chrome;
 
       extensions = [
-      # ublock origin
-      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+        # ublock origin lite
+        { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; }
       ];
 
       commandLineArgs = [

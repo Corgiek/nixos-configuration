@@ -48,7 +48,7 @@ _:
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-WD_PC_SN560_SDDPNQE-1T00-1102_23326L401726";
+        device = "/dev/disk/by-id/nvme-CL4-3D256-Q11_NVMe_SSSTC_256GB_TW0M3TJT9DH0034B04M9";
 
         content = {
           type = "gpt";

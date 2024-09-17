@@ -22,6 +22,7 @@ in {
   config = mkIf cfg.enable {
     programs.vscode = {
       enable = true;
+      package = pkgs.vscodium;
       enableUpdateCheck = false;
     };
   };

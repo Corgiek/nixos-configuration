@@ -14,7 +14,7 @@ let
   cfg = config.module.user.packages;
 in {
   options.module.user.packages = {
-    enable = mkEnableOption "Enable maxmur packages";
+    enable = mkEnableOption "Enable user packages";
   };
 
   config = mkIf cfg.enable {
@@ -69,10 +69,6 @@ in {
       # Chats
       materialgram
       vesktop
-
-      # Wine
-      wineWow64Packages.unstableFull
-      lutris
 
       # OBS & plugins
       obs-studio

@@ -74,8 +74,9 @@ in {
             "Home Manager"
           ];
 
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
           ublock-origin
+          darkreader
           sponsorblock
           return-youtube-dislikes
         ];

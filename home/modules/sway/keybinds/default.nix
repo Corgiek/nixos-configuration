@@ -29,7 +29,7 @@ let
   appLauncher       = "${pkgs.rofi}/bin/rofi -monitor $(swaymsg -t get_outputs | ${pkgs.jq}/bin/jq '.[] | select(.focused) | .name' -r) -show";
   audioControl      = "${pkgs.pulseaudio}/bin/pactl";
   brightnessControl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  clipHist          = "${pkgs.cliphist}/bin/cliphist list | rofi -dmenu | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
+  clipHist          = "${pkgs.cliphist}/bin/cliphist list | ${appLauncher} -d | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
   notificationsApp  = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
 in {
   options.module.sway.keybindings = {

@@ -18,7 +18,9 @@
     - [Sway](#-sway)
 - [Software](#-software)
 - [Hosts description](#%EF%B8%8F-hosts-description)
+- [Keyboard](#%EF%B8%8F-keyboard)
 - [Special thanks](#%EF%B8%8F-special-thanks)
+- [Star history](#-star-history)
 
 ## ✨ Features 
 

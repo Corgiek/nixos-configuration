@@ -18,6 +18,8 @@ in {
     boot.initrd.systemd.enable = true;
     # systemd.sysusers.enable = true; ### break
 
+    services.dbus.implementation = "broker";
+
     system.switch = {
       enable = false;
       enableNg = true;

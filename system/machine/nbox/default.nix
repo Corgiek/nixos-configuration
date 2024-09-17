@@ -5,6 +5,7 @@
 {
   module = {
     sound.enable          = true;
+    bluetooth.enable      = true;
     lanzaboote.enable     = true;
     locales.enable        = true;
     network.enable        = true;

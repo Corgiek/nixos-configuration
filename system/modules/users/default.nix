@@ -26,7 +26,7 @@ in {
           shell = pkgs.fish;
           hashedPasswordFile = "${self}/secrets/hashes/${username}.hash";
           createHome = true;
-          group = "users";
+          group = "wheel";
           isSystemUser = true;
 
           extraGroups = [

@@ -13,7 +13,7 @@ _:
     script = ''
       vgchange -ay pool
       mkdir -p /btrfs_tmp
-      mount /dev/mapper/pool-root /btrfs_tmp
+      mount /dev/pool/root /btrfs_tmp
 
       if [[ -e /btrfs_tmp/root ]]; then
           mkdir -p /btrfs_tmp/old_roots
@@ -55,7 +55,7 @@ _:
 
           partitions = {
             esp = {
-              size = "2G";
+              size = "5G";
               type = "EF00";
 
               content = {
@@ -104,12 +104,12 @@ _:
 
                 "/persist" = {
                   mountpoint   = "/persist";
-                  mountOptions = [ "compress=zstd:4" "subvol=persist" "noatime" ];
+                  mountOptions = [ "compress=zstd:5" "subvol=persist" "noatime" ];
                 };
 
                 "/nix" = {
                   mountpoint   = "/nix";
-                  mountOptions = [ "compress=zstd:4" "subvol=nix" "noatime" ];
+                  mountOptions = [ "compress=zstd:5" "subvol=nix" "noatime" ];
                 };
               };
             };

@@ -45,7 +45,7 @@ in {
 
           "type:keyboard" = {
             xkb_layout = "us,ru";
-            xkb_variant "colemak"
+            xkb_variant = "colemak";
             xkb_options = "grp:caps_toggle";
             repeat_delay = "300";
             repeat_rate = "60";

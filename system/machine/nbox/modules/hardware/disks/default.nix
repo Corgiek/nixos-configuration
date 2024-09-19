@@ -13,7 +13,7 @@ _:
     script = ''
       vgchange -ay pool
       mkdir -p /btrfs_tmp
-      mount /dev/pool/root /btrfs_tmp
+      mount /dev/mapper/pool-root /btrfs_tmp
 
       if [[ -e /btrfs_tmp/root ]]; then
           mkdir -p /btrfs_tmp/old_roots
@@ -48,14 +48,14 @@ _:
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-id/nvme-WD_PC_SN560_SDDPNQE-1T00-1102_23326L401726";
+        device = "/dev/disk/by-id/nvme-CL4-3D256-Q11_NVMe_SSSTC_256GB_TW0M3TJT9DH0034B04M9";
 
         content = {
           type = "gpt";
 
           partitions = {
             esp = {
-              size = "512M";
+              size = "2G";
               type = "EF00";
 
               content = {
@@ -104,12 +104,12 @@ _:
 
                 "/persist" = {
                   mountpoint   = "/persist";
-                  mountOptions = [ "compress=zstd" "subvol=persist" "noatime" ];
+                  mountOptions = [ "compress=zstd:4" "subvol=persist" "noatime" ];
                 };
 
                 "/nix" = {
                   mountpoint   = "/nix";
-                  mountOptions = [ "compress=zstd" "subvol=nix" "noatime" ];
+                  mountOptions = [ "compress=zstd:4" "subvol=nix" "noatime" ];
                 };
               };
             };

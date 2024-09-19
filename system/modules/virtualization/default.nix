@@ -51,11 +51,11 @@ in {
               (unstable.OVMF.override {
                 secureBoot = true;
                 tpmSupport = true;
-            }).fd
-          ];
+              }).fd
+            ];
+          };
         };
       };
     };
   };
 }
-

@@ -17,8 +17,8 @@ in {
       enable = true;
       tempBat    = 80;
       tempAc     = 80;
-      coreOffset = -102;
-      gpuOffset  = -102;
+      coreOffset = -135;
+      gpuOffset  = -139;
     };
   };
 }

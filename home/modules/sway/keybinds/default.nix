@@ -23,7 +23,7 @@ let
   workspace11 = "workspace number 11";
   workspace12 = "workspace number 12";
 
-  terminal          = "${pkgs.foot}/bin/foot";
+  terminal          = "${pkgs.foot}/bin/footclient";
   screenshotArea    = "${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy ";
   screenshotScreen  = "${pkgs.grim}/bin/grim -o $(swaymsg -t get_outputs | ${pkgs.jq}/bin/jq -r '.[] | select(.focused) | .name') - | ${pkgs.wl-clipboard}/bin/wl-copy";
   appLauncher       = "${pkgs.rofi}/bin/rofi -monitor $(swaymsg -t get_outputs | ${pkgs.jq}/bin/jq '.[] | select(.focused) | .name' -r) -show";

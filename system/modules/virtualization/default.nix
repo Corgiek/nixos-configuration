@@ -48,7 +48,7 @@ in {
           ovmf = {
             enable = true;
             packages = [
-              (unstable.OVMF.override {
+              (OVMF.override {
                 secureBoot = true;
                 tpmSupport = true;
               }).fd

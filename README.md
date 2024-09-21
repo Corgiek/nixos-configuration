@@ -18,7 +18,6 @@
     - [Sway](#-sway)
 - [Software](#-software)
 - [Hosts description](#%EF%B8%8F-hosts-description)
-- [Keyboard](#%EF%B8%8F-keyboard)
 - [Special thanks](#%EF%B8%8F-special-thanks)
 - [Star history](#-star-history)
 
@@ -91,7 +90,7 @@ The images below may not represent the final system. Some parts may differ.
 
 | Hostname | Board | CPU | RAM | GPU | OS | State |
 | --- | --- | --- | --- | --- | --- | --- |
-| pcbox | ASRock B450 Fatal1ty Gaming K4 | Ryzen 3 4300GE | 16GB | Gigabyte AMD Radeon RX 560 4 GB | NixOS | OK |
+| pcbox | ASRock B450 Fatal1ty Gaming K4 | AMD Ryzen 3 4300GE | 16GB | Gigabyte AMD Radeon RX 560 4 GB | NixOS | OK |
 | nbox | ThinkPad T480 | i5 8350U | 16GB | Integrated Intel UHD 620 | NixOS | OK |
 
 ## ❤️ Special thanks

@@ -22,6 +22,8 @@
       "i915.enable_guc=1"
       "i915.enable_fbc=1"
       "pci=assign-busses,hpbussize=0x33,realloc"
+      # Touchpad tune
+      "psmouse.synaptics_intertouch=1"
     ];
 
     initrd.availableKernelModules = [ 

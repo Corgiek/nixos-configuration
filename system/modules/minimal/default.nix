@@ -15,7 +15,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # Disable dodocumentation
+    # Disable documentation
     documentation = {
       enable = mkDefault false;
       doc.enable = mkDefault false;

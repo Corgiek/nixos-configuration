@@ -74,7 +74,7 @@ in {
             "Home Manager"
           ];
 
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+        extensions = with config.nur.repos.rycee.firefox-addons; [
           ublock-origin
           darkreader
           sponsorblock

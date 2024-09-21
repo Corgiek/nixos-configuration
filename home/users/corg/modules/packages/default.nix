@@ -23,6 +23,7 @@ in {
     home.packages = with pkgs; [
       # Utils
       bat
+      tldr
       tokei
       shellcheck
       pre-commit

@@ -12,7 +12,7 @@ let
   cfg = config.module.stylix;
 
   theme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-  wallpaper = "${self}/assets/grey_gradient.png";
+  wallpaper = "${self}/assets/wallpaper.png";
   cursorSize = if hostname == "nbox" then 24 else 14;
 in {
   options = {

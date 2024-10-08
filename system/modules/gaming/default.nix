@@ -48,6 +48,10 @@ in {
           # support cyrillic symbols
           LANG = "ru_RU.UTF-8";
         };
+        extraBwrapArgs = [
+          "--bind $HOME/Games/steamhome $HOME"
+          "--bind $HOME/Games/Steam $HOME/.local/share/Steam"
+        ];
       };
       extraCompatPackages = [ pkgs.proton-ge-bin ];
     };

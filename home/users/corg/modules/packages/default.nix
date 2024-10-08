@@ -23,13 +23,13 @@ in {
     home.packages = with pkgs; [
       # Utils
       bat
-      tldr
       tokei
       shellcheck
       pre-commit
       deadnix
       statix
-      ffmpeg
+      ffmpeg-full
+      sshfs
       inputs.any-nix-shell
 
       # Security
@@ -49,6 +49,9 @@ in {
       semgrep
       grype
       syft
+
+      # Misc
+      qbittorrent
 
       # Fonts
       (nerdfonts.override { fonts = [ "JetBrainsMono" "UbuntuMono" "Iosevka" ]; })

@@ -16,7 +16,7 @@ in {
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;
-      package = pkgs.floorp;
+      package = pkgs.firefox;
 
       profiles.default = {
         id = 0;
@@ -30,6 +30,7 @@ in {
           "widget.dmabuf.force-enabled" = true;
           "gfx.webrender.all" = true;
           "gfx.webrender.compositor" = true;
+          "image.jxl.enabled" = true;
 
           # Disable telemetry for privacy reasons
           "toolkit.telemetry.archive.enabled" = false;
@@ -61,6 +62,16 @@ in {
           "dom.battery.enabled" = false; # you don't need to see my battery...
         };
 
+        extensions = with config.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          darkreader
+          sponsorblock
+          return-youtube-dislikes
+          sidebery
+          bitwarden
+        ];
+
+
         search = {
           force = true;
           default = "DuckDuckGo";
@@ -73,13 +84,6 @@ in {
             "GitHub"
             "Home Manager"
           ];
-
-        extensions = with config.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-          darkreader
-          sponsorblock
-          return-youtube-dislikes
-        ];
 
           engines = {
             "Bing".metaData.hidden = true;

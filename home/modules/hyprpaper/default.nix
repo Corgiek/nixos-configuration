@@ -17,8 +17,8 @@ in {
       enable = true;
 
       settings = {
-        preload = [ "../../../assets/grey_gradient.png" ];
-        wallpapers = [ "../../../assets/grey_gradient.png" ];
+        preload = [ "../../../assets/wallpaper.jfif" ];
+        wallpapers = [ "../../../assets/wallpaper.jfif" ];
       };
     };
   };

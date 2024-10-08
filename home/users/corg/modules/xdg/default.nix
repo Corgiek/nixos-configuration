@@ -21,11 +21,11 @@ in {
         "text/markdown" = "nvim.desktop";
         "text/plain" = "nvim.desktop";
 
-        "text/html" = "floorp.desktop";
-        "x-scheme-handler/http" = "floorp.desktop";
-        "x-scheme-handler/https" = "floorp.desktop";
-        "x-scheme-handler/about" = "floorp.desktop";
-        "x-scheme-handler/unknown" = "floorp.desktop";
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
 
         "image/png" = "org.gnome.eog.desktop";
         "image/jpeg" = "org.gnome.eog.desktop";
@@ -43,6 +43,7 @@ in {
       music = "/home/${username}/Music";
       pictures = "/home/${username}/Pictures";
       desktop = "/home/${username}/Desktop";
+      publicShare = null;
       templates = null;
     };
   };

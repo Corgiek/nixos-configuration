@@ -16,15 +16,14 @@ in {
     programs.mpv = {
       enable = true;
 
-    config =  {
-      profile = "gpu-hq";
-      force-window = true;
-      hwdec = auto;
-      ao = "pipewire,alsa,coreaudio";
-      ytdl-format = "bestvideo+bestaudio";
-      cache-default = 4000000;
-    };
-
+      config =  {
+        profile = "gpu-hq";
+        force-window = true;
+        hwdec = auto;
+        ao = "pipewire,alsa,coreaudio";
+        ytdl-format = "bestvideo+bestaudio";
+        cache-default = 4000000;
+      };
     };
   };
 }

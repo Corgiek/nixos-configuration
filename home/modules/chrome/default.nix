@@ -21,6 +21,8 @@ in {
       extensions = [
         # ublock origin lite
         { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; }
+        # sponsorblock
+        { id = "mnjggcdmjocbbbhaepdhchncahnbgone"; }
       ];
 
       commandLineArgs = [

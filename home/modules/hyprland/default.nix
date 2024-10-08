@@ -91,7 +91,6 @@ in {
 
         input = {
           kb_layout = "us,ru";
-          kb_variant = "colemak";
           kb_options = "grp:caps_toggle";
           accel_profile = "flat";
           sensitivity = 0.0;

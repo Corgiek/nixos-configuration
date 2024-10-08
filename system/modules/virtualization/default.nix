@@ -47,12 +47,6 @@ in {
           swtpm.enable = true;
           ovmf = {
             enable = true;
-            packages = [
-              (OVMF.override {
-                secureBoot = true;
-                tpmSupport = true;
-              }).fd
-            ];
           };
         };
       };

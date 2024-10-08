@@ -20,6 +20,19 @@ in {
       swapDevices = 1;
       memoryPercent = 100;
     };
+
+    boot = {
+      kernelParams = [
+        "zswap.enabled=0"
+      ];
+
+      kernel.sysctl = {
+        # Disable swap readahead
+        "vm.page-cluster" = 0;
+        # Compressing a page is cheaper than major mmap pagefault
+        "vm.swappiness" = 60;
+      };
+    };
   };
 }
 

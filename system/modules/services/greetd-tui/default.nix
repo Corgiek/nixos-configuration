@@ -15,7 +15,7 @@ let
   cmd = if wm == "hyprland"
     then "${inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland"
   else if wm == "sway"
-    then "${pkgs.swayfx}/bin/sway"
+    then "${pkgs.sway}/bin/sway"
   else "";
 in {
   options = {

@@ -22,6 +22,7 @@ in {
 
     environment.systemPackages = with pkgs; [
       # Utils
+      tldr
       git
       home-manager
       nvd
@@ -31,6 +32,8 @@ in {
       tree
       file
       zip
+      unrar-free
+      p7zip
       unzip
       killall
       jq
@@ -76,7 +79,6 @@ in {
 
       # Utils
       dconf-editor
-      grim
     ];
   };
 }

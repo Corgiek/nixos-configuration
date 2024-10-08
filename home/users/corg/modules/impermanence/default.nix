@@ -21,6 +21,7 @@ in {
         directories = [
           "Code"
           "Desktop"
+          "Games"
           "Downloads"
           "Documents"
           "go"

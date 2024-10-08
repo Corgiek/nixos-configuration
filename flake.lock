@@ -489,23 +489,6 @@
         "type": "github"
       }
     },
-    "flake-utils_4": {
-      "inputs": {
-        "systems": "systems_7"
-      },
-      "locked": {
-        "lastModified": 1705309234,
-        "narHash": "sha256-uNRRNRKmJyCRC/8y1RqBkqWBLM034y4qN7EprSdmgyA=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "1ef2e671c3b0c19053962c07dbda38332dcebf26",
-        "type": "github"
-      },
-      "original": {
-        "id": "flake-utils",
-        "type": "indirect"
-      }
-    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -1128,18 +1111,19 @@
         "type": "github"
       }
     },
-    "nixpkgs_9": {
+    "nur": {
       "locked": {
-        "lastModified": 1708093448,
-        "narHash": "sha256-gohEm3/NVyu7WINFhRf83yJH8UM2ie/KY9Iw3VN6fiE=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "c7763249f02b7786b4ca36e13a4d7365cfba162f",
+        "lastModified": 1727711628,
+        "narHash": "sha256-mWmrhs2DVCVLYnst/Se41Och1NYi3IgsEGD7F3kWmNg=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "e01981fc82ba4c82c03b374a551dd330f47d67bb",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
       }
     },
     "powerlevel10k": {
@@ -1246,6 +1230,7 @@
         "nixpkgs": [
           "unstable"
         ],
+        "nur": "nur",
         "powerlevel10k": "powerlevel10k",
         "sops-nix": "sops-nix",
         "stable": "stable",
@@ -1253,7 +1238,6 @@
         "treefmt-nix": "treefmt-nix",
         "unstable": "unstable",
         "xdghypr": "xdghypr",
-        "yandex-music": "yandex-music",
         "zsh-auto-notify": "zsh-auto-notify",
         "zsh-autosuggestions": "zsh-autosuggestions",
         "zsh-history-substring-search": "zsh-history-substring-search",
@@ -1480,21 +1464,6 @@
         "type": "github"
       }
     },
-    "systems_7": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_7"
@@ -1606,38 +1575,6 @@
         "owner": "UbiqueLambda",
         "repo": "yafas",
         "type": "github"
-      }
-    },
-    "yandex-music": {
-      "inputs": {
-        "flake-utils": "flake-utils_4",
-        "nixpkgs": "nixpkgs_9",
-        "ymExe": "ymExe"
-      },
-      "locked": {
-        "lastModified": 1725008655,
-        "narHash": "sha256-M0UcnrYtlrRY1sN65UPXcgEAzcdSpKWeHn4kbLDRRaw=",
-        "owner": "cucumber-sp",
-        "repo": "yandex-music-linux",
-        "rev": "8d7a26f3f3095044dd08422d9bca5607aa173103",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cucumber-sp",
-        "repo": "yandex-music-linux",
-        "type": "github"
-      }
-    },
-    "ymExe": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-GBSL5XmBPkAYGqRmO3CH6HOvt8Ltq0mU/MWoPbUneSk=",
-        "type": "file",
-        "url": "https://music-desktop-application.s3.yandex.net/stable/Yandex_Music_x64_5.14.0.exe"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://music-desktop-application.s3.yandex.net/stable/Yandex_Music_x64_5.14.0.exe"
       }
     },
     "zsh-auto-notify": {

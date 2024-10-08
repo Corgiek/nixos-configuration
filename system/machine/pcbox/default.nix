@@ -35,6 +35,7 @@
       polkit.enable            = true;
       syncthing.enable         = true;
       udev.enable              = true;
+      zram.enable              = true;
       greetd-tui.enable        = true;
       jellyfin.enable          = true;
       mediamtx.enable          = true;

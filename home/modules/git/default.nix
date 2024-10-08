@@ -19,11 +19,6 @@ in {
       userName = "Corgiek";
       userEmail = "corggie@proton.me";
 
-      signing = {
-        key = "EC9C10ED7A62D7BDB796B05EEB757CE80A4B2F30";
-        signByDefault = true;
-      };
-
       includes = [
         {
           path = "~/Code/work/gitconfig";

@@ -16,6 +16,18 @@ in {
     programs.yazi = {
       enable = true;
       enableFishIntegration = true;
+
+      settings = {
+        log.enabled = false;
+
+        manager = {
+          sort_dir_first = true;
+          sort_reverse = true;
+          sort_sensitive = true;
+          linemode = "size";
+          show_symlink = true;
+        };
+      };
     };
   };
 }

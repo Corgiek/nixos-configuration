@@ -15,7 +15,7 @@
   };
 
   module = {
-    alacritty.enable  = isWorkstation;
+    wezterm.enable  = isWorkstation;
     vscode.enable     = isWorkstation;
     doom-emacs.enable = isWorkstation;
     zathura.enable    = isWorkstation;
@@ -52,7 +52,6 @@
     yazi.enable           = true;
 
     user = {
-      impermanence.enable = isLinux && isWorkstation;
       xdg.enable          = isLinux && isWorkstation;
 
       packages.enable = true;

@@ -1,5 +1,6 @@
 { inputs
 , lib
+, pkgs
 , config
 , ...
 }:
@@ -16,7 +17,8 @@ in {
   config = mkIf cfg.enable {
     home-manager = {
       useGlobalPkgs = true;
-      useUserPackages = true; 
+      useUserPackages = true;
+      backupFileExtension = "backup-" + pkgs.lib.readFile "${pkgs.runCommand "timestamp" {} "echo -n date '+%Y%m%d%H%M%S' > $out"}";
       extraSpecialArgs = {
         inherit inputs;
       };

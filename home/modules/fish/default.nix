@@ -37,6 +37,10 @@ in {
         "h" = "history";
         "c" = "clear";
         "s" = "sudo su";
+        "tree" = "eza --tree -L 3";
+        "ls" = "eza";
+        "l" = "eza --icons -F -H --group-directories-first --git";
+        "ll" = "eza --icons -F -H --group-directories-first --git -all";
 
         # Git
         "gs" = "git status";

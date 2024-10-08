@@ -10,12 +10,13 @@ let
   cfg = config.module.sway.outputs;
 
   pcboxOutputs = {
-    DP-1 = { 
+    HDMI-A-2 = { 
       resolution = "1920x1080@72Hz";
       position = "0 0";
+      adaptive_sync = "on";
     };
     
-    DP-2 = {
+    DP-3 = {
       resolution = "1024x768@102Hz";
       position = "1920 312";
     };

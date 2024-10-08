@@ -10,6 +10,7 @@ with lib;
 let
   cfg = config.module.hyprland.binds;
 
+  terminal          = "${pkgs.foot}/bin/foot";
   audioControl      = "${pkgs.pulseaudio}/bin/pactl";
   brightnessControl = "${pkgs.brightnessctl}/bin/brightnessctl";
   screenshotArea    = "${pkgs.grimblast}/bin/grimblast --notify --freeze copy area";
@@ -30,9 +31,9 @@ in {
         "${pkgs.swww}/bin/swww init & sleep 0.5 && exec ${pkgs.swww}/bin/swww img ${self}/assets/grey_gradient.png --transition-type simple"
 
         # Autostart
-        "[workspace 1 silent] ${pkgs.floorp}/bin/floorp"
+        "[workspace 1 silent] ${pkgs.firefox}/bin/firefox"
 
-        "[workspace 2 silent] ${pkgs.telegram-desktop}/bin/telegram-desktop"
+        "[workspace 2 silent] ${pkgs.materialgram}/bin/materialgram"
 
         "[workspace 4 silent] ${pkgs.obsidian}/bin/obsidian"
 
@@ -104,8 +105,7 @@ in {
         ", xf86audiomute,        exec, ${audioControl} set-sink-mute @DEFAULT_SINK@ toggle"
 
         # Terminal
-        # "SUPER, Return, exec, ${pkgs.alacritty}/bin/alacritty"
-        "SUPER, Return, exec, ${pkgs.foot}/bin/foot"
+        "SUPER, Return, exec, ${terminal}"
 
         # Notifications
         "SUPER, N, exec, ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw"
@@ -118,7 +118,7 @@ in {
         "SHIFT, Print, exec, ${screenshotScreen}"
 
         # Launchers
-        "CTRL, Space, exec, ${appLauncher}"
+        "SUPER, D, exec, ${appLauncher}"
 
         # Cliphist
         "SUPER, C, exec, ${cliphist}"
@@ -169,7 +169,7 @@ in {
         # "workspace 1, class:^(firefox)$"
 
         # Telegram
-        "workspace 2, class:^(org.telegram.desktop)$"
+        "workspace 2, class:^(io.github.kukuruzka165.materialgram)$"
         "float,size 900 500,title:^(Choose Files)"
 
         # Obsidian

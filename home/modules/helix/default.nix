@@ -63,8 +63,8 @@ in {
             separator = "│";
             mode = {
               normal = "NORMAL";
-              insert = "-- INSERT --";
-              select = "-- SELECT --";
+              insert = "INSERT";
+              select = "SELECT";
             };
           };
 

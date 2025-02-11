@@ -46,6 +46,7 @@ in {
           ".config/sops"
           ".config/vesktop"
           ".config/sops-nix"
+          ".config/obs-studio"
           ".config/obsidian"
           ".config/Code"
           ".config/dconf"
@@ -72,6 +73,7 @@ in {
           ".face.icon"
           ".zsh_history"
           ".cache/cliphist/db"
+          ".cache/tealdeer"
         ];
       };
     };

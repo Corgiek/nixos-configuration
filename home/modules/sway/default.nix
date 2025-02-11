@@ -26,17 +26,32 @@ in {
     };
 
     home.sessionVariables = {
-      XDG_CURRENT_DESKTOP    = "sway";
-      XDG_SESSION_DESKTOP    = "sway";
+      XDG_CURRENT_DESKTOP                 = "sway";
+      XDG_SESSION_DESKTOP                 = "sway";
+      GTK_CSD                             = "0";
+      GTK_USE_PORTAL                      = "1";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    };
+
+    gtk = {
+      gtk3.extraConfig = {
+        gtk-decoration-layout = ":";
+      };
+
+      gtk4.extraConfig = {
+        gtk-decoration-layout = ":";
+      };
     };
 
     wayland.windowManager.sway = {
       enable = true;
       systemd.enable = true;
+      systemd.xdgAutostart = true;
       checkConfig = false;
 
       config = {
         focus.mouseWarping = "container";
+        workspaceAutoBackAndForth = true;
 
         input = {
           "type:pointer" = {
@@ -74,7 +89,6 @@ in {
           { command = "${pkgs.sway}/bin/swaymsg 'workspace 1; exec ${pkgs.firefox}/bin/firefox'"; }
           { command = "${pkgs.sway}/bin/swaymsg 'workspace 2; exec ${pkgs.materialgram}/bin/materialgram'"; }
           { command = "${pkgs.sway}/bin/swaymsg 'workspace 4; exec ${pkgs.obsidian}/bin/obsidian'"; }
-          { command = "${pkgs.sway}/bin/swaymsg 'workspace 5; exec ${pkgs.foot}/bin/foot'"; }
           { command = "${pkgs.sway}/bin/swaymsg 'workspace 5; exec ${pkgs.foot}/bin/foot'"; }
           { command = "${pkgs.sway}/bin/swaymsg 'workspace 5; exec ${pkgs.foot}/bin/foot'"; }
           { command = "${pkgs.sway}/bin/swaymsg 'workspace 8; exec ${pkgs.vesktop}/bin/vesktop'"; }

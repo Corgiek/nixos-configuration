@@ -1,6 +1,5 @@
 { inputs
 , lib
-, username
 , config
 , homeModules
 , ...
@@ -65,47 +64,6 @@ in {
         extraConfig = ''
           zstyle ':omz:update' mode disabled
         '';
-      };
-
-      shellAliases = {
-        # System
-        "flake-update" = "nix flake update /home/${username}/Code/nixos-configuration/";
-        "darwin-update" = "darwin-rebuild switch --flake /Users/${username}/Code/nixos-configuration/";
-        "ls" = "eza";
-        "ll" = "eza -l";
-        "h" = "history";
-        "c" = "clear";
-        "s" = "sudo su";
-
-        # Git
-        "gs" = "git status";
-        "ga" = "git add";
-        "ga." = "git add .";
-        "gch" = "git checkout";
-        "gchb" = "git checkout -b";
-        "gc" = "git commit";
-        "gcm" = "git commit -m";
-        "gb" = "git branch";
-        "mergemaster" = "git checkout master; git pull; git merge develop; git push; git checkout develop";
-        "gfr" = "git fetch upstream && git rebase upstream/master";
-
-        # Docker
-        "di" = "docker images";
-        "dr" = "docker run";
-        "db" = "docker build";
-        "dp" = "docker ps";
-        "dps" = "docker ps -a";
-        "drmi" = "docker rmi";
-        "drm" = "docker rm";
-
-        # Pass
-        "passc" = "pass -c";
-        "upass" = "pass git pull; pass git push";
-
-        # Others
-        "gopenssl" = "/opt/cryptopack3/bin/openssl";
-        "fuck" = "_ !!";
-        "sudo" = "doas";
       };
 
       initExtraFirst = ''

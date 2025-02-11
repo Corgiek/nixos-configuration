@@ -1,6 +1,5 @@
 { config
 , lib
-, username
 , ...
 }:
 
@@ -37,14 +36,31 @@ in {
       };
     };
 
-    xdg.userDirs = {
+    xdg = {
       enable = true;
-      createDirectories = true;
-      music = "/home/${username}/Music";
-      pictures = "/home/${username}/Pictures";
-      desktop = "/home/${username}/Desktop";
-      publicShare = null;
-      templates = null;
+
+      cacheHome = "${config.home.homeDirectory}/.cache";
+      configHome = "${config.home.homeDirectory}/.config";
+      dataHome = "${config.home.homeDirectory}/.local/share";
+      stateHome = "${config.home.homeDirectory}/.local/state";
+
+      userDirs = {
+        enable = true;
+        createDirectories = true;
+        music = "${config.home.homeDirectory}/Music";
+        pictures = "${config.home.homeDirectory}/Pictures";
+        download = "${config.home.homeDirectory}/Downloads";
+        desktop = "${config.home.homeDirectory}/Desktop";
+        documents = "${config.home.homeDirectory}/Documents";
+        videos = "${config.home.homeDirectory}/Videos";
+        publicShare = null;
+        templates = null;
+
+        extraConfig = {
+          XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
+          XDG_DEV_DIR = "${config.home.homeDirectory}/Code";
+        };
+      };
     };
   };
 }

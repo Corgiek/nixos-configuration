@@ -4,12 +4,18 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages;
+
+    supportedFilesystems = [
+      "zfs" 
+    ];
 
     kernelModules = [
       "amdgpu"
       "kvm-amd"
       "kvm-intel"
+      "tls"
+      "tcp_bbr"
     ];
 
     extraModulePackages = [ ];

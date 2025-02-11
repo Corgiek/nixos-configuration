@@ -1,5 +1,5 @@
 {
-  description = "Corggie Flake";
+  description = "Corggie flake";
 
   inputs = {
     # Official NixOS repo
@@ -13,7 +13,7 @@
 
     # Latest stable
     stable = {
-      url = "github:NixOS/nixpkgs/nixos-24.05";
+      url = "github:NixOS/nixpkgs/nixos-24.11";
     };
 
     # Current nixpkgs branch
@@ -65,11 +65,11 @@
 
     # Hyprland ecosystem
     hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&rev=c5feee1e357f3c3c59ebe406630601c627807963";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.47.2";
     };
 
     xdghypr = {
-      url = "github:hyprwm/xdg-desktop-portal-hyprland/v1.3.1";
+      url = "github:hyprwm/xdg-desktop-portal-hyprland/v1.3.9";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -82,13 +82,26 @@
       url = "github:SomeoneSerge/pkgs";
     };
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+
+      inputs = {
+        nixpkgs-stable.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs";
+      };
+    };
+    
+    proxmox-nixos = {
+      url = "github:SaumonNet/proxmox-nixos";
+    };
+
     # Security
     sops-nix = {
       url = "github:Mic92/sops-nix";
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.3.0";
+      url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -150,4 +163,3 @@
     };
   };
 }
-

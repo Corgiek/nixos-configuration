@@ -1,0 +1,34 @@
+{ lib
+, config
+, ...
+}:
+
+with lib;
+
+let
+  cfg = config.module.minimal;
+in {
+  options = {
+    module.minimal = {
+      enable = mkEnableOption "Disable documentation";
+    };
+  };
+
+  config = mkIf cfg.enable {
+    # Disable documentation
+    documentation = {
+      enable = mkDefault false;
+      doc.enable = mkDefault false;
+      info.enable = mkDefault false;
+      man.enable = mkDefault false;
+      man.man-db.enable = mkDefault false;
+      man.mandoc.enable = mkDefault false;
+      man.generateCaches = mkDefault false;
+      nixos.enable = mkDefault false;
+    };
+
+    services.logrotate.enable = mkDefault false;
+    programs.command-not-found.enable = mkDefault false;
+  };
+}
+

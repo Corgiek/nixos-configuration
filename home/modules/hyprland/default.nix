@@ -43,6 +43,9 @@ in {
         env = [
           "XDG_CURRENT_DESKTOP,Hyprland"
           "XDG_SESSION_DESKTOP,Hyprland"
+          "GTK_CSD,0"
+          "GTK_USE_PORTAL,1"
+          "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         ];
 
         animations = {

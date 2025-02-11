@@ -15,6 +15,11 @@ in {
   config = mkIf cfg.enable {
     programs.ripgrep = {
       enable = true;
+
+      arguments = [
+        "--smart-case"
+        "--max-columns-preview"
+      ];
     };
   };
 }

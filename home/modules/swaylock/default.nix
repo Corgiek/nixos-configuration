@@ -17,6 +17,13 @@ in {
   config = mkIf cfg.enable {
     programs.swaylock = {
       enable = true;
+
+      settings = {
+        daemonize = true;
+        clock = true;
+        line-uses-ring = true;
+        show-failed-attempts = true;
+      };
     };
   };
 }

@@ -1,19 +1,20 @@
-{ lib
-, config
-, pkgs
-, homeModules
-, ...
+{
+  self,
+  lib,
+  config,
+  ...
 }:
 
 with lib;
 
 let
   cfg = config.module.vscode;
-in {
+in
+{
   imports = [
-    "${homeModules}/vscode/keybindings"
-    "${homeModules}/vscode/extentions"
-    "${homeModules}/vscode/settings"
+    "${self}/home/modules/vscode/keybindings"
+    "${self}/home/modules/vscode/extentions"
+    "${self}/home/modules/vscode/settings"
   ];
 
   options = {
@@ -28,4 +29,3 @@ in {
     };
   };
 }
-

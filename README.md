@@ -92,6 +92,7 @@ The images below may not represent the final system. Some parts may differ.
 | --- | --- | --- | --- | --- | --- | --- |
 | pcbox | ASRock B450 Fatal1ty Gaming K4 | AMD Ryzen 3 4300GE | 16GB | Gigabyte AMD Radeon RX 560 4 GB | NixOS | OK |
 | nbox | ThinkPad T480 | i5 8350U | 16GB | Integrated Intel UHD 620 | NixOS | OK |
+| legioner | Lenovo Legion 5 | i7 9850H | 24GB | Integrated Intel UHD 630 + Nvidia GTX 1660 Ti | NixOS | OK |
 
 ## ❤️ Special thanks
 

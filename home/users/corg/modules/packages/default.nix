@@ -45,18 +45,17 @@ in {
       # Minecraft
       prismlauncher
 
-      # Security
-      semgrep
-      grype
-      syft
-
       # Misc
       qbittorrent
 
       # Fonts
-      (nerdfonts.override { fonts = [ "JetBrainsMono" "UbuntuMono" "Iosevka" ]; })
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.ubuntu-mono
+      nerd-fonts.iosevka
+      departure-mono
       corefonts
     ] ++ lib.optionals (isLinux && isWorkstation) [
+      inputs.ghostty.packages.x86_64-linux.default
       # Programming
       go
       python3
@@ -67,11 +66,10 @@ in {
       kubernetes-helm
       ansible
       ansible-lint
-      terraform
-      vagrant
 
       # Chats
       materialgram
+      kdePackages.neochat
       vesktop
 
       # OBS & plugins
@@ -84,13 +82,13 @@ in {
       dconf2nix
       gpick
       gat
-      eog
     ] ++ lib.optionals wmEnable [
       imagemagick
       grim
       slurp
       wl-clipboard
       wl-screenrec
+      vulkan-validation-layers
       wayland
       hyprpicker
       waypaper
@@ -98,6 +96,7 @@ in {
       imv
       gtk3
       dbus
+      libnotify
       glib
       swww
       xdg-utils

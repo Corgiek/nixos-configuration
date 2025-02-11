@@ -13,6 +13,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    home.file.".config/htop/htoprc".source = ./htoprc;
+
     programs.htop = {
       enable = true;
     };

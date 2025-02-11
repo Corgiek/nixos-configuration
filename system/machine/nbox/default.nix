@@ -1,6 +1,4 @@
-{ hyprlandEnable
-, ...
-}:
+_:
 
 {
   module = {
@@ -17,11 +15,6 @@
     minimal.enable        = true;
     nixos-ng.enable       = true;
 
-    chaotic = {
-      enable = true;
-      schedulerType = "scx_bpfland";
-    };
-
     security = {
       enable            = true;
       enableBootOptions = true;
@@ -30,14 +23,18 @@
 
     services = {
       bolt.enable         = true;
-      cpu-autofreq.enable = true;
+      tlp.enable          = true;
       fwupd.enable        = true;
       polkit.enable       = true;
       udev.enable         = true;
       zram.enable         = true;
-      greetd-tui.enable   = true;
+      greetd.enable       = true;
+      oomd.enable         = true;
 
-      hyprland.enable = hyprlandEnable;
+      scx = {
+        enable = true;
+        schedulerType = "scx_bpfland";
+      };
     };
 
     programs = {

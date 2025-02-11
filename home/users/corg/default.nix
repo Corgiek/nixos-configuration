@@ -11,18 +11,20 @@
 
   stylix.targets = {
     vscode.enable = false;
-    helix.enable = false;
+    helix.enable  = false;
   };
 
   module = {
-    wezterm.enable  = isWorkstation;
+    wezterm.enable    = isWorkstation;
     vscode.enable     = isWorkstation;
-    doom-emacs.enable = isWorkstation;
+    zed-editor.enable = isWorkstation;
     zathura.enable    = isWorkstation;
     stylix.enable     = isWorkstation;
+    mpv.enable        = isWorkstation;
 
-    firefox.enable = isLinux && isWorkstation;
+    floorp.enable  = isLinux && isWorkstation;
     foot.enable    = isLinux && isWorkstation;
+    mpd.enable     = isLinux && isWorkstation;
     ssh.enable     = isLinux && isWorkstation;
 
     hyprland.enable = hyprlandEnable && isLinux && isWorkstation;
@@ -33,7 +35,7 @@
 
     hypridle.enable = wmEnable && isLinux && isWorkstation;
     waybar.enable   = wmEnable && isLinux && isWorkstation;
-    rofi.enable     = wmEnable && isLinux && isWorkstation;
+    wofi.enable     = wmEnable && isLinux && isWorkstation;
     swaync.enable   = wmEnable && isLinux && isWorkstation;
 
     btop.enable           = true;
@@ -42,7 +44,8 @@
     fzf.enable            = true;
     htop.enable           = true;
     ripgrep.enable        = true;
-    neofetch.enable       = true;
+    fastfetch.enable      = true;
+    tealdeer.enable       = true;
     nvim.enable           = true;
     helix.enable          = true;
     password-store.enable = true;
@@ -53,8 +56,10 @@
 
     user = {
       xdg.enable          = isLinux && isWorkstation;
-
-      packages.enable = true;
+      variables.enable    = isLinux && isWorkstation;
+      impermanence.enable = isLinux;
+      shellAliases.enable = true;
+      packages.enable     = true;
     };
   };
 }

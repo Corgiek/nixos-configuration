@@ -75,9 +75,14 @@ in {
             on-timeout = suspendCmd;
             on-resume = "";
           }
+        ] ++ lib.optionals (hostname == "legioner") [
+          {
+            timeout = 1000;
+            on-timeout = suspendCmd;
+            on-resume = "";
+          }
         ];
       };
     };
   };
 }
-

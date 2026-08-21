@@ -1,3 +1,5 @@
+
+
 <div align="center"><img src="assets/nixos-logo.png" width="300px"></div>
 <h1 align="center">Corggie ❄️ NixOS Public Configuration</h1>
 
@@ -83,7 +85,7 @@ The images below may not represent the final system. Some parts may differ.
  - Bar - [**`Waybar`**](https://github.com/Alexays/Waybar)
  - Terminal - [**`Foot`**](https://codeberg.org/dnkl/foot)
  - Shell - [**`Fish`**](https://fishshell.com/)
- - Promt - [**`Starship`**](https://starship.rs/)
+ - Prompt - [**`Starship`**](https://starship.rs/)
  - Filemanager - [**`Yazi`**](https://github.com/sxyazi/yazi)
 
 ## 🖥️ Hosts description
